@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import logoBlue from "@/assets/logo-blue.png";
-import logoWhite from "@/assets/logo-white.png";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
