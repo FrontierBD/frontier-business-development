@@ -5,34 +5,32 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-
 const Contact = () => {
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     businessName: "",
     service: "",
-    message: "",
+    message: ""
   });
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
       title: "Message sent!",
-      description: "We'll get back to you within 24 hours.",
+      description: "We'll get back to you within 24 hours."
     });
     setFormData({
       name: "",
       email: "",
       businessName: "",
       service: "",
-      message: "",
+      message: ""
     });
   };
-
-  return (
-    <section id="contact" className="py-20 md:py-32 bg-gradient-to-b from-[hsl(213,30%,96%)] to-[hsl(213,20%,99%)] dark:from-[hsl(213,25%,14%)] dark:to-[hsl(213,25%,10%)]">
+  return <section id="contact" className="py-20 md:py-32 bg-gradient-to-b from-[hsl(213,30%,96%)] to-[hsl(213,20%,99%)] dark:from-[hsl(213,25%,14%)] dark:to-[hsl(213,25%,10%)]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-4 mb-16 animate-fade-in-up">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">
@@ -52,7 +50,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1 text-card-foreground">Email</h3>
-                  <p className="text-sm text-muted-foreground">info@frontier.ca</p>
+                  <p className="text-sm text-muted-foreground">team@frontierbd.com</p>
                 </div>
               </CardContent>
             </Card>
@@ -64,7 +62,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1 text-card-foreground">Phone</h3>
-                  <p className="text-sm text-muted-foreground">+1 (902) 555-0123</p>
+                  <p className="text-sm text-muted-foreground">+1 (782) 882-2671</p>
                 </div>
               </CardContent>
             </Card>
@@ -90,28 +88,19 @@ const Contact = () => {
                     <label htmlFor="name" className="text-sm font-medium text-card-foreground">
                       Name *
                     </label>
-                    <Input
-                      id="name"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      required
-                      placeholder="John Doe"
-                      className="bg-background border-border"
-                    />
+                    <Input id="name" value={formData.name} onChange={e => setFormData({
+                    ...formData,
+                    name: e.target.value
+                  })} required placeholder="John Doe" className="bg-background border-border" />
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="email" className="text-sm font-medium text-card-foreground">
                       Email *
                     </label>
-                    <Input
-                      id="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      required
-                      placeholder="john@example.com"
-                      className="bg-background border-border"
-                    />
+                    <Input id="email" type="email" value={formData.email} onChange={e => setFormData({
+                    ...formData,
+                    email: e.target.value
+                  })} required placeholder="john@example.com" className="bg-background border-border" />
                   </div>
                 </div>
 
@@ -120,27 +109,19 @@ const Contact = () => {
                     <label htmlFor="businessName" className="text-sm font-medium text-card-foreground">
                       Business Name *
                     </label>
-                    <Input
-                      id="businessName"
-                      value={formData.businessName}
-                      onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
-                      required
-                      placeholder="Your Business"
-                      className="bg-background border-border"
-                    />
+                    <Input id="businessName" value={formData.businessName} onChange={e => setFormData({
+                    ...formData,
+                    businessName: e.target.value
+                  })} required placeholder="Your Business" className="bg-background border-border" />
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="service" className="text-sm font-medium text-card-foreground">
                       Service Needed *
                     </label>
-                    <Input
-                      id="service"
-                      value={formData.service}
-                      onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                      required
-                      placeholder="Website Design, SEO, etc."
-                      className="bg-background border-border"
-                    />
+                    <Input id="service" value={formData.service} onChange={e => setFormData({
+                    ...formData,
+                    service: e.target.value
+                  })} required placeholder="Website Design, SEO, etc." className="bg-background border-border" />
                   </div>
                 </div>
 
@@ -148,21 +129,13 @@ const Contact = () => {
                   <label htmlFor="message" className="text-sm font-medium text-card-foreground">
                     Message
                   </label>
-                  <Textarea
-                    id="message"
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Tell us about your project..."
-                    rows={5}
-                    className="bg-background border-border"
-                  />
+                  <Textarea id="message" value={formData.message} onChange={e => setFormData({
+                  ...formData,
+                  message: e.target.value
+                })} placeholder="Tell us about your project..." rows={5} className="bg-background border-border" />
                 </div>
 
-                <Button
-                  type="submit"
-                  className="w-full bg-primary hover:bg-primary-light shadow-glow transition-all duration-300 hover:scale-105"
-                  size="lg"
-                >
+                <Button type="submit" className="w-full bg-primary hover:bg-primary-light shadow-glow transition-all duration-300 hover:scale-105" size="lg">
                   Send Message
                 </Button>
               </form>
@@ -170,8 +143,6 @@ const Contact = () => {
           </Card>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Contact;
