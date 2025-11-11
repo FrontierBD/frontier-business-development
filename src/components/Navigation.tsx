@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import logoBlack from "@/assets/logo-black.png";
+import logoBlue from "@/assets/logo-blue.png";
 import logoWhite from "@/assets/logo-white.png";
 
 const Navigation = () => {
@@ -37,7 +37,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link to="/" className="flex items-center">
             <img 
-              src={logoBlack} 
+              src={logoBlue} 
               alt="Frontier Business Development" 
               className="h-12 md:h-16 w-auto dark:hidden"
             />
