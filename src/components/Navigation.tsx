@@ -33,57 +33,39 @@ const Navigation = () => {
           : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto pl-2 pr-4 sm:pl-3 sm:pr-6 lg:pl-4 lg:pr-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          <Link to="/" className="flex items-center">
-            <img 
-              src={logoBlue} 
-              alt="Frontier Business Development" 
-              className="h-24 md:h-40 w-auto dark:hidden"
-            />
-            <img 
-              src={logoWhite} 
-              alt="Frontier Business Development" 
-              className="h-24 md:h-40 w-auto hidden dark:block"
-            />
-          </Link>
-
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-center h-16 md:h-20">
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             <Link
               to="/"
-              className="text-foreground hover:text-primary transition-colors"
+              className="text-white hover:text-white/80 transition-colors"
             >
               Home
             </Link>
             <Link
               to="/services"
-              className="text-foreground hover:text-primary transition-colors"
+              className="text-white hover:text-white/80 transition-colors"
             >
               Services
             </Link>
             <Link
               to="/projects"
-              className="text-foreground hover:text-primary transition-colors"
+              className="text-white hover:text-white/80 transition-colors"
             >
               Projects
             </Link>
             <Link
               to="/contact"
-              className="text-foreground hover:text-primary transition-colors"
+              className="text-white hover:text-white/80 transition-colors"
             >
               Contact
-            </Link>
-            <Link to="/contact">
-              <Button className="bg-primary hover:bg-primary-light shadow-glow transition-all duration-300">
-                Get Started
-              </Button>
             </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-foreground"
+            className="md:hidden text-white absolute right-4"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -98,35 +80,30 @@ const Navigation = () => {
             <Link
               to="/"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="block w-full text-left text-foreground hover:text-primary transition-colors py-2"
+              className="block w-full text-center text-white hover:text-white/80 transition-colors py-2"
             >
               Home
             </Link>
             <Link
               to="/services"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="block w-full text-left text-foreground hover:text-primary transition-colors py-2"
+              className="block w-full text-center text-white hover:text-white/80 transition-colors py-2"
             >
               Services
             </Link>
             <Link
               to="/projects"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="block w-full text-left text-foreground hover:text-primary transition-colors py-2"
+              className="block w-full text-center text-white hover:text-white/80 transition-colors py-2"
             >
               Projects
             </Link>
             <Link
               to="/contact"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="block w-full text-left text-foreground hover:text-primary transition-colors py-2"
+              className="block w-full text-center text-white hover:text-white/80 transition-colors py-2"
             >
               Contact
-            </Link>
-            <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-              <Button className="w-full bg-primary hover:bg-primary-light shadow-glow transition-all duration-300">
-                Get Started
-              </Button>
             </Link>
           </div>
         </div>
