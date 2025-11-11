@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import logoBlack from "@/assets/logo-black.png";
+import logoWhite from "@/assets/logo-white.png";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,44 +35,50 @@ const Navigation = () => {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <div className="flex items-center space-x-2">
-            <div className="text-xl md:text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-              Frontier
-            </div>
-          </div>
+          <Link to="/" className="flex items-center">
+            <img 
+              src={logoBlack} 
+              alt="Frontier Business Development" 
+              className="h-8 md:h-10 w-auto dark:hidden"
+            />
+            <img 
+              src={logoWhite} 
+              alt="Frontier Business Development" 
+              className="h-8 md:h-10 w-auto hidden dark:block"
+            />
+          </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <button
-              onClick={() => scrollToSection("home")}
+            <Link
+              to="/"
               className="text-foreground hover:text-primary transition-colors"
             >
               Home
-            </button>
-            <button
-              onClick={() => scrollToSection("services")}
+            </Link>
+            <Link
+              to="/services"
               className="text-foreground hover:text-primary transition-colors"
             >
               Services
-            </button>
-            <button
-              onClick={() => scrollToSection("projects")}
+            </Link>
+            <Link
+              to="/projects"
               className="text-foreground hover:text-primary transition-colors"
             >
               Projects
-            </button>
-            <button
-              onClick={() => scrollToSection("contact")}
+            </Link>
+            <Link
+              to="/contact"
               className="text-foreground hover:text-primary transition-colors"
             >
               Contact
-            </button>
-            <Button
-              onClick={() => scrollToSection("contact")}
-              className="bg-primary hover:bg-primary-light shadow-glow transition-all duration-300"
-            >
-              Get Started
-            </Button>
+            </Link>
+            <Link to="/contact">
+              <Button className="bg-primary hover:bg-primary-light shadow-glow transition-all duration-300">
+                Get Started
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -86,36 +95,39 @@ const Navigation = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-background border-t border-border">
           <div className="container mx-auto px-4 py-4 space-y-4">
-            <button
-              onClick={() => scrollToSection("home")}
+            <Link
+              to="/"
+              onClick={() => setIsMobileMenuOpen(false)}
               className="block w-full text-left text-foreground hover:text-primary transition-colors py-2"
             >
               Home
-            </button>
-            <button
-              onClick={() => scrollToSection("services")}
+            </Link>
+            <Link
+              to="/services"
+              onClick={() => setIsMobileMenuOpen(false)}
               className="block w-full text-left text-foreground hover:text-primary transition-colors py-2"
             >
               Services
-            </button>
-            <button
-              onClick={() => scrollToSection("projects")}
+            </Link>
+            <Link
+              to="/projects"
+              onClick={() => setIsMobileMenuOpen(false)}
               className="block w-full text-left text-foreground hover:text-primary transition-colors py-2"
             >
               Projects
-            </button>
-            <button
-              onClick={() => scrollToSection("contact")}
+            </Link>
+            <Link
+              to="/contact"
+              onClick={() => setIsMobileMenuOpen(false)}
               className="block w-full text-left text-foreground hover:text-primary transition-colors py-2"
             >
               Contact
-            </button>
-            <Button
-              onClick={() => scrollToSection("contact")}
-              className="w-full bg-primary hover:bg-primary-light shadow-glow transition-all duration-300"
-            >
-              Get Started
-            </Button>
+            </Link>
+            <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+              <Button className="w-full bg-primary hover:bg-primary-light shadow-glow transition-all duration-300">
+                Get Started
+              </Button>
+            </Link>
           </div>
         </div>
       )}
