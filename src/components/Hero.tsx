@@ -17,9 +17,9 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in-up pt-20 md:pt-0">
           <div className="flex justify-center">
             <img 
-              src={logoBlue} 
+              src={logoWhite} 
               alt="Frontier Business Development" 
-              className="h-48 sm:h-56 md:h-64 lg:h-80 w-auto drop-shadow-2xl"
+              className="h-64 sm:h-72 md:h-96 lg:h-[28rem] w-auto drop-shadow-2xl"
             />
           </div>
           
