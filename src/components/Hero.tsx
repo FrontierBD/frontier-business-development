@@ -16,7 +16,7 @@ const Hero = () => {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center space-y-0 animate-fade-in-up pt-12 md:pt-0">
-          <div className="flex justify-center mx-auto -mt-4 md:-mt-6">
+          <div className="flex justify-center mx-auto -mt-2 md:-mt-4">
             <img
               src={logoWhite}
               alt="Frontier Business Development"
@@ -24,7 +24,7 @@ const Hero = () => {
             />
           </div>
 
-          <p className="text-lg sm:text-xl text-white/95 max-w-3xl mx-auto drop-shadow-lg text-center md:text-2xl mt-72">
+          <p className="text-lg sm:text-xl text-white/95 max-w-3xl mx-auto drop-shadow-lg text-center md:text-2xl mt-96">
             We build high performing websites and AI-powered systems that help businesses attract more clients and scale
             faster.
           </p>
