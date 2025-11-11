@@ -24,15 +24,10 @@ const Hero = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
             <Link to="/contact">
-              <Button size="lg" className="bg-primary hover:bg-primary-light shadow-glow text-base md:text-lg px-8 py-6 transition-all duration-300 hover:scale-105">
-                Get a Free Quote
-                <ArrowRight className="ml-2" />
-              </Button>
+              
             </Link>
             <Link to="/services">
-              <Button size="lg" variant="outline" className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground text-base md:text-lg px-8 py-6 transition-all duration-300">
-                Explore Services
-              </Button>
+              
             </Link>
           </div>
 
