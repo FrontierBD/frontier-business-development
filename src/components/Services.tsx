@@ -31,8 +31,8 @@ const services = [
 
 const Services = () => {
   return (
-    <section id="services" className="py-20 md:py-32 bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className="py-20 md:py-32 relative overflow-hidden" style={{ background: 'var(--gradient-services)' }}>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center space-y-4 mb-16 animate-fade-in-up">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">
             Our <span className="bg-gradient-primary bg-clip-text text-transparent">Services</span>
@@ -46,15 +46,17 @@ const Services = () => {
           {services.map((service, index) => (
             <Card
               key={index}
-              className="group hover:shadow-glow transition-all duration-300 hover:-translate-y-1 border-border bg-card animate-fade-in-up"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className="group hover:shadow-glow transition-all duration-500 hover:-translate-y-2 border-primary/20 bg-card animate-fade-in-up hover:border-primary/40 overflow-hidden relative"
+              style={{ animationDelay: `${index * 150}ms` }}
             >
-              <CardContent className="p-6 md:p-8 space-y-4">
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                  <service.icon className="w-7 h-7 text-primary" />
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <CardContent className="p-6 md:p-8 space-y-4 relative z-10">
+                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
+                  <service.icon className="w-7 h-7 text-primary transition-transform duration-300 group-hover:scale-110" />
                 </div>
-                <h3 className="text-xl font-semibold text-card-foreground group-hover:text-primary transition-colors">
+                <h3 className="text-xl font-semibold text-card-foreground group-hover:text-primary transition-colors duration-300 relative inline-block">
                   {service.title}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-500" />
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
                   {service.description}

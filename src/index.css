@@ -44,6 +44,7 @@ All colors MUST be HSL.
     
     --gradient-primary: linear-gradient(135deg, hsl(213 100% 34%), hsl(213 100% 45%));
     --gradient-hero: linear-gradient(180deg, hsl(0 0% 100%), hsl(213 20% 98%));
+    --gradient-services: linear-gradient(180deg, hsl(213 20% 99%), hsl(213 30% 96%));
     --shadow-glow: 0 0 40px hsl(213 100% 50% / 0.15);
     --shadow-card: 0 4px 20px hsl(213 20% 15% / 0.08);
   }
@@ -83,6 +84,7 @@ All colors MUST be HSL.
     
     --gradient-primary: linear-gradient(135deg, hsl(213 100% 45%), hsl(213 100% 55%));
     --gradient-hero: linear-gradient(180deg, hsl(213 25% 8%), hsl(213 25% 12%));
+    --gradient-services: linear-gradient(180deg, hsl(213 25% 10%), hsl(213 25% 14%));
     --shadow-glow: 0 0 40px hsl(213 100% 50% / 0.2);
     --shadow-card: 0 4px 20px hsl(0 0% 0% / 0.3);
   }

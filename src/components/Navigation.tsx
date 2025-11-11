@@ -36,7 +36,6 @@ const Navigation = () => {
             <Link to="/services" className={isHomePage ? "text-white hover:text-white/80 transition-colors" : "text-primary hover:text-primary-light transition-colors"}>
               Services
             </Link>
-            <Link to="/projects" className={isHomePage ? "text-white hover:text-white/80 transition-colors" : "text-primary hover:text-primary-light transition-colors"}>​Portfolio</Link>
             <Link to="/contact" className={isHomePage ? "text-white hover:text-white/80 transition-colors" : "text-primary hover:text-primary-light transition-colors"}>
               Contact
             </Link>
@@ -57,9 +56,6 @@ const Navigation = () => {
             </Link>
             <Link to="/services" onClick={() => setIsMobileMenuOpen(false)} className={isHomePage ? "block w-full text-center text-white hover:text-white/80 transition-colors py-2" : "block w-full text-center text-primary hover:text-primary-light transition-colors py-2"}>
               Services
-            </Link>
-            <Link to="/projects" onClick={() => setIsMobileMenuOpen(false)} className={isHomePage ? "block w-full text-center text-white hover:text-white/80 transition-colors py-2" : "block w-full text-center text-primary hover:text-primary-light transition-colors py-2"}>
-              Projects
             </Link>
             <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className={isHomePage ? "block w-full text-center text-white hover:text-white/80 transition-colors py-2" : "block w-full text-center text-primary hover:text-primary-light transition-colors py-2"}>
               Contact
