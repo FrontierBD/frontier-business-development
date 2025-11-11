@@ -32,29 +32,8 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-32 bg-background relative overflow-hidden">
-      {/* Geometric Grid Pattern Background */}
-      <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
-        <div 
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `
-              linear-gradient(to right, hsl(213 100% 33%) 1px, transparent 1px),
-              linear-gradient(to bottom, hsl(213 100% 33%) 1px, transparent 1px)
-            `,
-            backgroundSize: '60px 60px'
-          }}
-        />
-        <div 
-          className="absolute inset-0"
-          style={{
-            backgroundImage: 'radial-gradient(circle, hsl(213 100% 33%) 1px, transparent 1px)',
-            backgroundSize: '60px 60px',
-          }}
-        />
-      </div>
-      
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="contact" className="py-20 md:py-32 bg-gradient-to-b from-[hsl(213,30%,96%)] to-[hsl(213,20%,99%)] dark:from-[hsl(213,25%,14%)] dark:to-[hsl(213,25%,10%)]">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-4 mb-16 animate-fade-in-up">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">
             Get In <span className="bg-gradient-primary bg-clip-text text-transparent">Touch</span>
