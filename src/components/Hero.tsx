@@ -16,23 +16,12 @@ const Hero = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center space-y-0 animate-fade-in-up pt-20 md:pt-0">
           <div className="flex justify-center mx-auto">
-            <img 
-              src={logoWhite} 
-              alt="Frontier Business Development" 
-              className="h-20 sm:h-28 md:h-36 lg:h-44 w-auto drop-shadow-2xl"
-            />
+            <img src={logoWhite} alt="Frontier Business Development" className="h-20 sm:h-28 md:h-36 lg:h-44 w-auto drop-shadow-2xl" />
           </div>
           
           <p className="text-lg sm:text-xl text-white/95 max-w-3xl mx-auto drop-shadow-lg text-center md:text-2xl mt-20">​We build high performing websites and AI-powered systems that help businesses attract more clients and scale faster.</p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-            <Link to="/contact">
-              
-            </Link>
-            <Link to="/services">
-              
-            </Link>
-          </div>
+          
 
           
         </div>
