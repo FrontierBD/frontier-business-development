@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import { useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import logoBlue from "@/assets/logo-blue.png";
 import logoWhite from "@/assets/logo-white.png";
@@ -30,15 +29,15 @@ const Navigation = () => {
         <div className="flex items-center justify-center h-16 md:h-20">
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link to="/" className={isHomePage ? "text-white hover:text-white/80 transition-colors" : "text-primary hover:text-primary-light transition-colors"}>
+            <button onClick={() => scrollToSection('hero')} className={isHomePage ? "text-white hover:text-white/80 transition-colors" : "text-primary hover:text-primary-light transition-colors"}>
               Home
-            </Link>
-            <Link to="/services" className={isHomePage ? "text-white hover:text-white/80 transition-colors" : "text-primary hover:text-primary-light transition-colors"}>
+            </button>
+            <button onClick={() => scrollToSection('services')} className={isHomePage ? "text-white hover:text-white/80 transition-colors" : "text-primary hover:text-primary-light transition-colors"}>
               Services
-            </Link>
-            <Link to="/contact" className={isHomePage ? "text-white hover:text-white/80 transition-colors" : "text-primary hover:text-primary-light transition-colors"}>
+            </button>
+            <button onClick={() => scrollToSection('contact')} className={isHomePage ? "text-white hover:text-white/80 transition-colors" : "text-primary hover:text-primary-light transition-colors"}>
               Contact
-            </Link>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -51,15 +50,15 @@ const Navigation = () => {
       {/* Mobile Menu */}
       {isMobileMenuOpen && <div className="md:hidden bg-background border-t border-border">
           <div className="container mx-auto px-4 py-4 space-y-4">
-            <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className={isHomePage ? "block w-full text-center text-white hover:text-white/80 transition-colors py-2" : "block w-full text-center text-primary hover:text-primary-light transition-colors py-2"}>
+            <button onClick={() => scrollToSection('hero')} className={isHomePage ? "block w-full text-center text-white hover:text-white/80 transition-colors py-2" : "block w-full text-center text-primary hover:text-primary-light transition-colors py-2"}>
               Home
-            </Link>
-            <Link to="/services" onClick={() => setIsMobileMenuOpen(false)} className={isHomePage ? "block w-full text-center text-white hover:text-white/80 transition-colors py-2" : "block w-full text-center text-primary hover:text-primary-light transition-colors py-2"}>
+            </button>
+            <button onClick={() => scrollToSection('services')} className={isHomePage ? "block w-full text-center text-white hover:text-white/80 transition-colors py-2" : "block w-full text-center text-primary hover:text-primary-light transition-colors py-2"}>
               Services
-            </Link>
-            <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className={isHomePage ? "block w-full text-center text-white hover:text-white/80 transition-colors py-2" : "block w-full text-center text-primary hover:text-primary-light transition-colors py-2"}>
+            </button>
+            <button onClick={() => scrollToSection('contact')} className={isHomePage ? "block w-full text-center text-white hover:text-white/80 transition-colors py-2" : "block w-full text-center text-primary hover:text-primary-light transition-colors py-2"}>
               Contact
-            </Link>
+            </button>
           </div>
         </div>}
     </nav>;

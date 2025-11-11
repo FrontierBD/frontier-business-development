@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import logoBlue from "@/assets/logo-blue.png";
 import logoWhite from "@/assets/logo-white.png";
 const Hero = () => {
-  return <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
+  return <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Video Background */}
       <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
         <source src="/videos/hero-video.mp4" type="video/mp4" />
