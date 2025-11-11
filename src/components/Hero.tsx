@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import logoBlue from "@/assets/logo-blue.png";
+import logoWhite from "@/assets/logo-white.png";
 const Hero = () => {
   return <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Video Background */}
@@ -13,12 +15,13 @@ const Hero = () => {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in-up pt-20 md:pt-0">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1] tracking-[0.07em] text-white drop-shadow-2xl">
-            Frontier Business{" "}
-            <span className="text-primary-light drop-shadow-2xl">
-              Development
-            </span>
-          </h1>
+          <div className="flex justify-center">
+            <img 
+              src={logoWhite} 
+              alt="Frontier Business Development" 
+              className="h-32 sm:h-40 md:h-48 lg:h-56 w-auto drop-shadow-2xl"
+            />
+          </div>
           
           <p className="text-lg sm:text-xl text-white/95 max-w-3xl mx-auto drop-shadow-lg text-center md:text-2xl">​We build high performing websites and AI-powered systems that help businesses attract more clients and scale faster.</p>
 
