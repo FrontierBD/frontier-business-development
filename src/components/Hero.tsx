@@ -15,7 +15,7 @@ const Hero = () => {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center space-y-0 animate-fade-in-up pt-20 md:pt-0">
-          <div className="flex justify-center w-fit mx-auto">
+          <div className="flex justify-center mx-auto">
             <img 
               src={logoWhite} 
               alt="Frontier Business Development" 
