@@ -39,12 +39,12 @@ const Navigation = () => {
             <img 
               src={logoBlue} 
               alt="Frontier Business Development" 
-              className="h-12 md:h-16 w-auto dark:hidden"
+              className="h-16 md:h-24 w-auto dark:hidden"
             />
             <img 
               src={logoWhite} 
               alt="Frontier Business Development" 
-              className="h-12 md:h-16 w-auto hidden dark:block"
+              className="h-16 md:h-24 w-auto hidden dark:block"
             />
           </Link>
 
