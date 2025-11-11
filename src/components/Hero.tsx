@@ -19,11 +19,11 @@ const Hero = () => {
             <img 
               src={logoWhite} 
               alt="Frontier Business Development" 
-              className="h-80 sm:h-96 md:h-[32rem] lg:h-[40rem] w-auto drop-shadow-2xl"
+              className="h-32 sm:h-40 md:h-48 lg:h-56 w-auto drop-shadow-2xl"
             />
           </div>
           
-          <p className="text-lg sm:text-xl text-white/95 max-w-3xl mx-auto drop-shadow-lg text-center md:text-2xl -mt-16">​We build high performing websites and AI-powered systems that help businesses attract more clients and scale faster.</p>
+          <p className="text-lg sm:text-xl text-white/95 max-w-3xl mx-auto drop-shadow-lg text-center md:text-2xl -mt-8">​We build high performing websites and AI-powered systems that help businesses attract more clients and scale faster.</p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
             <Link to="/contact">
