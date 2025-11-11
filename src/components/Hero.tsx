@@ -19,7 +19,7 @@ const Hero = () => {
             <img 
               src={logoWhite} 
               alt="Frontier Business Development" 
-              className="h-64 sm:h-72 md:h-96 lg:h-[28rem] w-auto drop-shadow-2xl"
+              className="h-80 sm:h-96 md:h-[32rem] lg:h-[40rem] w-auto drop-shadow-2xl"
             />
           </div>
           
