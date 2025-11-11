@@ -10,7 +10,8 @@ const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      // Check if scrolled past the hero section (roughly viewport height)
+      setIsScrolled(window.scrollY > window.innerHeight * 0.8);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -24,24 +25,26 @@ const Navigation = () => {
       setIsMobileMenuOpen(false);
     }
   };
-  return <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
+  const showWhiteNav = isScrolled && isHomePage;
+  
+  return <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${showWhiteNav ? 'bg-white shadow-md' : 'bg-transparent'}`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-center h-16 md:h-20">
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <button onClick={() => scrollToSection('hero')} className={isHomePage ? "text-white hover:text-white/80 transition-colors" : "text-primary hover:text-primary-light transition-colors"}>
+            <button onClick={() => scrollToSection('hero')} className={showWhiteNav || !isHomePage ? "text-primary hover:text-primary-light transition-colors" : "text-white hover:text-white/80 transition-colors"}>
               Home
             </button>
-            <button onClick={() => scrollToSection('services')} className={isHomePage ? "text-white hover:text-white/80 transition-colors" : "text-primary hover:text-primary-light transition-colors"}>
+            <button onClick={() => scrollToSection('services')} className={showWhiteNav || !isHomePage ? "text-primary hover:text-primary-light transition-colors" : "text-white hover:text-white/80 transition-colors"}>
               Services
             </button>
-            <button onClick={() => scrollToSection('contact')} className={isHomePage ? "text-white hover:text-white/80 transition-colors" : "text-primary hover:text-primary-light transition-colors"}>
+            <button onClick={() => scrollToSection('contact')} className={showWhiteNav || !isHomePage ? "text-primary hover:text-primary-light transition-colors" : "text-white hover:text-white/80 transition-colors"}>
               Contact
             </button>
           </div>
 
           {/* Mobile Menu Button */}
-          <button className={isHomePage ? "md:hidden text-white absolute right-4" : "md:hidden text-primary absolute right-4"} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          <button className={showWhiteNav || !isHomePage ? "md:hidden text-primary absolute right-4" : "md:hidden text-white absolute right-4"} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -50,13 +53,13 @@ const Navigation = () => {
       {/* Mobile Menu */}
       {isMobileMenuOpen && <div className="md:hidden bg-background border-t border-border">
           <div className="container mx-auto px-4 py-4 space-y-4">
-            <button onClick={() => scrollToSection('hero')} className={isHomePage ? "block w-full text-center text-white hover:text-white/80 transition-colors py-2" : "block w-full text-center text-primary hover:text-primary-light transition-colors py-2"}>
+            <button onClick={() => scrollToSection('hero')} className={showWhiteNav || !isHomePage ? "block w-full text-center text-primary hover:text-primary-light transition-colors py-2" : "block w-full text-center text-white hover:text-white/80 transition-colors py-2"}>
               Home
             </button>
-            <button onClick={() => scrollToSection('services')} className={isHomePage ? "block w-full text-center text-white hover:text-white/80 transition-colors py-2" : "block w-full text-center text-primary hover:text-primary-light transition-colors py-2"}>
+            <button onClick={() => scrollToSection('services')} className={showWhiteNav || !isHomePage ? "block w-full text-center text-primary hover:text-primary-light transition-colors py-2" : "block w-full text-center text-white hover:text-white/80 transition-colors py-2"}>
               Services
             </button>
-            <button onClick={() => scrollToSection('contact')} className={isHomePage ? "block w-full text-center text-white hover:text-white/80 transition-colors py-2" : "block w-full text-center text-primary hover:text-primary-light transition-colors py-2"}>
+            <button onClick={() => scrollToSection('contact')} className={showWhiteNav || !isHomePage ? "block w-full text-center text-primary hover:text-primary-light transition-colors py-2" : "block w-full text-center text-white hover:text-white/80 transition-colors py-2"}>
               Contact
             </button>
           </div>
