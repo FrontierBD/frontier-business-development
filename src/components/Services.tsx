@@ -1,31 +1,26 @@
-import { Globe, Search, Bot, Share2, TrendingUp } from "lucide-react";
+import { Globe, Bot, Check } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const services = [
   {
     icon: Globe,
-    title: "Website Design & Development",
-    description: "Modern, responsive websites built to showcase your business and convert visitors into customers.",
-  },
-  {
-    icon: Search,
-    title: "SEO Optimization",
-    description: "Improve your search rankings and get found by customers actively looking for your services.",
+    title: "Website Design & SEO Optimization",
+    description: "We build fast, modern websites that capture attention and drive conversions. Each site is optimized for SEO and built to grow with your business.",
+    features: [
+      "Responsive design",
+      "SEO keyword targeting",
+      "Google Analytics integration"
+    ]
   },
   {
     icon: Bot,
-    title: "AI Website Integrations",
-    description: "Intelligent chatbots and automation tools that enhance customer engagement 24/7.",
-  },
-  {
-    icon: Share2,
-    title: "Social Media Management",
-    description: "Professional social media strategies that build your brand and grow your audience.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Digital Ad Campaigns",
-    description: "Targeted advertising campaigns that deliver measurable results and maximize your ROI.",
+    title: "AI Integration & Automation",
+    description: "We help you save time and scale faster by automating key business processes with AI-driven tools.",
+    features: [
+      "Chatbots for customer service",
+      "Lead capture & CRM automation",
+      "Workflow integration"
+    ]
   },
 ];
 
@@ -42,7 +37,7 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
           {services.map((service, index) => (
             <Card
               key={index}
@@ -61,6 +56,14 @@ const Services = () => {
                 <p className="text-muted-foreground leading-relaxed">
                   {service.description}
                 </p>
+                <ul className="space-y-2 pt-2">
+                  {service.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-start gap-2">
+                      <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-muted-foreground">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
               </CardContent>
             </Card>
           ))}
