@@ -10,8 +10,8 @@ const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
-      // Check if scrolled past the hero section (roughly viewport height)
-      setIsScrolled(window.scrollY > window.innerHeight * 0.8);
+      // Trigger color change after scrolling down a bit
+      setIsScrolled(window.scrollY > 100);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
