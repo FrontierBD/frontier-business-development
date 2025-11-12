@@ -44,9 +44,13 @@ All colors MUST be HSL.
     
     --gradient-primary: linear-gradient(135deg, hsl(213 100% 34%), hsl(213 100% 45%));
     --gradient-hero: linear-gradient(180deg, hsl(0 0% 0%), hsl(213 25% 8%));
-    --gradient-services: linear-gradient(180deg, hsl(0 0% 98%), hsl(0 0% 100%));
+    --gradient-services: linear-gradient(180deg, hsl(0 0% 98%), hsl(213 95% 97%));
+    --gradient-contact: linear-gradient(180deg, hsl(0 0% 100%), hsl(213 95% 97%));
+    --gradient-glass: linear-gradient(135deg, hsl(0 0% 100% / 0.7), hsl(213 100% 98% / 0.5));
     --shadow-glow: 0 0 40px hsl(213 100% 50% / 0.15);
+    --shadow-glow-hover: 0 8px 32px hsl(213 100% 50% / 0.25);
     --shadow-card: 0 4px 20px hsl(0 0% 0% / 0.1);
+    --shadow-premium: 0 8px 32px hsl(213 100% 34% / 0.12);
   }
 
   .dark {
@@ -97,5 +101,39 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  .animate-bounce-subtle {
+    animation: bounce-subtle 0.3s ease-in-out;
+  }
+  
+  @keyframes bounce-subtle {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.02);
+    }
+  }
+  
+  .animate-icon-pulse {
+    animation: icon-pulse 2s ease-in-out infinite;
+  }
+  
+  @keyframes icon-pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
   }
 }

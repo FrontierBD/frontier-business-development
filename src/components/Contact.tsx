@@ -57,11 +57,20 @@ const Contact = () => {
       });
     }
   };
-  return <section id="contact" className="py-20 md:py-32">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+  return <section id="contact" className="py-20 md:py-32 relative overflow-hidden" style={{ background: 'var(--gradient-contact)' }}>
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-10 right-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-10 left-20 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }} />
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center space-y-4 mb-16 animate-fade-in-up">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">
-            Get In <span className="bg-gradient-primary bg-clip-text text-transparent">Touch</span>
+            Get In <span className="bg-gradient-primary bg-clip-text text-transparent relative">
+              Touch
+              <span className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-primary opacity-30 blur-sm" />
+            </span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
             Ready to elevate your digital presence? Let's start a conversation.
@@ -70,10 +79,10 @@ const Contact = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           <div className="space-y-6 animate-fade-in-up">
-            <Card className="border-border bg-card hover:shadow-glow transition-all duration-300">
+            <Card className="border-primary/20 bg-white/90 backdrop-blur-sm hover:shadow-premium hover:-translate-y-1 transition-all duration-300 group">
               <CardContent className="p-6 flex items-start space-x-4">
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-6 h-6 text-primary" />
+                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-md group-hover:shadow-lg group-hover:shadow-primary/20">
+                  <Mail className="w-6 h-6 text-primary group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1 text-card-foreground">Email</h3>
@@ -82,10 +91,10 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-border bg-card hover:shadow-glow transition-all duration-300">
+            <Card className="border-primary/20 bg-white/90 backdrop-blur-sm hover:shadow-premium hover:-translate-y-1 transition-all duration-300 group" style={{ animationDelay: '150ms' }}>
               <CardContent className="p-6 flex items-start space-x-4">
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-6 h-6 text-primary" />
+                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-md group-hover:shadow-lg group-hover:shadow-primary/20">
+                  <Phone className="w-6 h-6 text-primary group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1 text-card-foreground">Phone</h3>
@@ -94,10 +103,10 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-border bg-card hover:shadow-glow transition-all duration-300">
+            <Card className="border-primary/20 bg-white/90 backdrop-blur-sm hover:shadow-premium hover:-translate-y-1 transition-all duration-300 group" style={{ animationDelay: '300ms' }}>
               <CardContent className="p-6 flex items-start space-x-4">
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-6 h-6 text-primary" />
+                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-md group-hover:shadow-lg group-hover:shadow-primary/20">
+                  <MapPin className="w-6 h-6 text-primary group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1 text-card-foreground">Location</h3>
@@ -107,8 +116,9 @@ const Contact = () => {
             </Card>
           </div>
 
-          <Card className="lg:col-span-2 border-border bg-card shadow-card animate-fade-in-up">
-            <CardContent className="p-6 md:p-8">
+          <Card className="lg:col-span-2 border-primary/20 bg-white/90 backdrop-blur-sm shadow-premium animate-fade-in-up overflow-hidden relative group">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <CardContent className="p-6 md:p-8 relative z-10">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
@@ -162,8 +172,13 @@ const Contact = () => {
                 })} placeholder="Tell us about your project..." rows={5} className="bg-background border-border" />
                 </div>
 
-                <Button type="submit" className="w-full bg-primary hover:bg-primary-light shadow-glow transition-all duration-300 hover:scale-105" size="lg">
-                  Send Message
+                <Button 
+                  type="submit" 
+                  className="w-full bg-gradient-to-r from-primary to-primary-light hover:from-primary-light hover:to-primary text-primary-foreground shadow-glow hover:shadow-glow-hover transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] relative overflow-hidden group/button" 
+                  size="lg"
+                >
+                  <span className="relative z-10">Send Message</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary-light to-primary opacity-0 group-hover/button:opacity-100 transition-opacity duration-300" />
                 </Button>
               </form>
             </CardContent>
