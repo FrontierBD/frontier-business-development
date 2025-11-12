@@ -4,16 +4,9 @@ import { Link } from "react-router-dom";
 import logoBlue from "@/assets/logo-blue.png";
 import logoWhite from "@/assets/logo-white.png";
 const Hero = () => {
-  return (
-    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
+  return <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Video Background */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover scale-110 -translate-x-[5%]"
-      >
+      <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover scale-110 -translate-x-[5%]">
         <source src="/videos/hero-video.mp4" type="video/mp4" />
       </video>
 
@@ -25,21 +18,16 @@ const Hero = () => {
         <div className="mx-auto text-center animate-fade-in-up pt-4">
           <div className="flex justify-center">
             {/* Use clamp for consistent logo size across devices */}
-            <img
-              src={logoWhite}
-              alt="Frontier Business Development"
-              className="w-[clamp(320px,40vw,650px)] h-auto drop-shadow-2xl mb-[-1.5rem]"
-            />
+            <img src={logoWhite} alt="Frontier Business Development" className="w-[clamp(320px,40vw,650px)] h-auto drop-shadow-2xl mb-[-1.5rem]" />
           </div>
 
           {/* Use clamp for consistent text size; remove breakpoint-based scaling */}
-          <p className="text-[clamp(14px,1vw,20px)] leading-snug text-white/95 max-w-[900px] mx-auto drop-shadow-lg mt-6 my-[25px]">
+          <p className="text-[clamp(14px,1vw,20px)] leading-snug text-white/95 max-w-[900px] mx-auto drop-shadow-lg mt-6 my-[40px]">
             We build high performing websites and AI-powered systems that help businesses attract more clients and scale
             faster.
           </p>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
 export default Hero;
