@@ -19,7 +19,7 @@ const Hero = () => {
 
   // ✍️ TEXT SETTINGS
   const textFontSize = "clamp(14px, 1.1vw, 20px)"; // Bigger numbers → larger text
-  const textMarginTop = "160px"; // Bigger → move text LOWER | Smaller → closer to logo
+  const textMarginTop = "100px"; // Bigger → move text LOWER | Smaller → closer to logo
   const textMaxWidth = "900px"; // Controls how wide the text can stretch
   // ================================================================
 
