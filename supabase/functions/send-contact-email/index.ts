@@ -28,7 +28,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send email to team@frontierbd.com
     const emailResponse = await resend.emails.send({
-      from: "Frontier Business Development <onboarding@resend.dev>",
+      from: "Frontier Business Development <noreply@frontierbd.com>",
       to: ["team@frontierbd.com"],
       replyTo: formData.email,
       subject: `New Contact Form Submission from ${formData.name}`,
