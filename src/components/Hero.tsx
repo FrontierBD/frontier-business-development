@@ -36,8 +36,8 @@ const Hero = () => {
         <source src="/videos/hero-video.mp4" type="video/mp4" />
       </video>
 
-      {/* 🌙 Dark overlay for text visibility */}
-      <div className="absolute inset-0 bg-black/60"></div>
+      {/* 🌙 Dark overlay with top-to-bottom fade */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black"></div>
 
       {/* 🧱 Main content */}
       <div className="relative z-10 mx-auto max-w-[1150px] px-6 text-center animate-fade-in-up">
