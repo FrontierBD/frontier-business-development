@@ -2,7 +2,9 @@ import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 
 const ScrollShowcase = () => {
   return (
-    <div className="flex flex-col overflow-hidden bg-background">
+    <div className="flex flex-col overflow-hidden py-12 md:py-16" style={{
+      background: 'linear-gradient(180deg, hsl(213 25% 5%), hsl(0 0% 0%))'
+    }}>
       <ContainerScroll
         titleComponent={
           <>

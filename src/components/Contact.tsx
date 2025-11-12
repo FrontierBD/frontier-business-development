@@ -57,7 +57,7 @@ const Contact = () => {
       });
     }
   };
-  return <section id="contact" className="py-20 md:py-32 relative overflow-hidden" style={{ background: 'var(--gradient-contact)' }}>
+  return <section id="contact" className="py-12 md:py-20 relative overflow-hidden" style={{ background: 'linear-gradient(180deg, hsl(213 25% 8%), hsl(213 25% 5%), hsl(0 0% 0%))' }}>
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-10 right-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" />

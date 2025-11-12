@@ -16,8 +16,8 @@ const Services = ({
 }: {
   className?: string;
 }) => {
-  return <section id="services" className={`py-20 md:py-32 relative overflow-hidden ${className}`} style={{
-    background: 'var(--gradient-services)'
+  return <section id="services" className={`py-12 md:py-20 relative overflow-hidden ${className}`} style={{
+    background: 'linear-gradient(180deg, hsl(0 0% 0%), hsl(213 25% 5%), hsl(213 25% 8%))'
   }}>
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
