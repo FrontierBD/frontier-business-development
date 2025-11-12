@@ -22,7 +22,7 @@ const Hero = () => {
           </div>
 
           {/* Use clamp for consistent text size; remove breakpoint-based scaling */}
-          <p className="text-[clamp(14px,1vw,20px)] leading-snug text-white/95 max-w-[900px] mx-auto drop-shadow-lg mt-6 my-[40px]">
+          <p className="text-[clamp(14px,1vw,20px)] leading-snug text-white/95 max-w-[900px] mx-auto drop-shadow-lg mt-6 my-[60px]">
             We build high performing websites and AI-powered systems that help businesses attract more clients and scale
             faster.
           </p>
