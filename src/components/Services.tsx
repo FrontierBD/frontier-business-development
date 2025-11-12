@@ -32,7 +32,7 @@ const Services = ({
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">
             Our <span className="bg-gradient-primary bg-clip-text text-transparent">Services</span>
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">​Comprehensive digital solutions that help businesses of all sizes build their brand, attract clients, and scale through AI-driven innovation</p>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">​Comprehensive digital solutions that help businesses of all sizes build their brand, attract clients, and scale through AI-driven innovation.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
