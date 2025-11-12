@@ -36,7 +36,7 @@ const Services = ({
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
-          {services.map((service, index) => <Card key={index} className="group hover:shadow-premium transition-all duration-500 hover:-translate-y-3 border-primary/20 animate-fade-in-up hover:border-primary/40 overflow-hidden relative backdrop-blur-sm bg-white/90 hover:scale-[1.02]" style={{
+          {services.map((service, index) => <Card key={index} className="group hover:shadow-premium transition-all duration-500 hover:-translate-y-3 border-primary/20 animate-fade-in-up hover:border-primary/40 overflow-hidden relative backdrop-blur-sm bg-card/80 hover:scale-[1.02]" style={{
           animationDelay: `${index * 150}ms`,
           boxShadow: '0 4px 20px rgba(0, 74, 173, 0.08)'
         }}>

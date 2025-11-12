@@ -76,7 +76,7 @@ const Contact = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           <div className="space-y-6 animate-fade-in-up">
-            <Card className="border-primary/20 bg-white/90 backdrop-blur-sm hover:shadow-premium hover:-translate-y-1 transition-all duration-300 group">
+            <Card className="border-primary/20 bg-card/80 backdrop-blur-sm hover:shadow-premium hover:-translate-y-1 transition-all duration-300 group">
               <CardContent className="p-6 flex items-start space-x-4">
                 <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-md group-hover:shadow-lg group-hover:shadow-primary/20">
                   <Mail className="w-6 h-6 text-primary group-hover:scale-110 transition-transform duration-300" />
@@ -88,7 +88,7 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20 bg-white/90 backdrop-blur-sm hover:shadow-premium hover:-translate-y-1 transition-all duration-300 group" style={{ animationDelay: '150ms' }}>
+            <Card className="border-primary/20 bg-card/80 backdrop-blur-sm hover:shadow-premium hover:-translate-y-1 transition-all duration-300 group" style={{ animationDelay: '150ms' }}>
               <CardContent className="p-6 flex items-start space-x-4">
                 <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-md group-hover:shadow-lg group-hover:shadow-primary/20">
                   <Phone className="w-6 h-6 text-primary group-hover:scale-110 transition-transform duration-300" />
@@ -100,7 +100,7 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20 bg-white/90 backdrop-blur-sm hover:shadow-premium hover:-translate-y-1 transition-all duration-300 group" style={{ animationDelay: '300ms' }}>
+            <Card className="border-primary/20 bg-card/80 backdrop-blur-sm hover:shadow-premium hover:-translate-y-1 transition-all duration-300 group" style={{ animationDelay: '300ms' }}>
               <CardContent className="p-6 flex items-start space-x-4">
                 <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-md group-hover:shadow-lg group-hover:shadow-primary/20">
                   <MapPin className="w-6 h-6 text-primary group-hover:scale-110 transition-transform duration-300" />
@@ -113,7 +113,7 @@ const Contact = () => {
             </Card>
           </div>
 
-          <Card className="lg:col-span-2 border-primary/20 bg-white/90 backdrop-blur-sm shadow-premium animate-fade-in-up overflow-hidden relative group">
+          <Card className="lg:col-span-2 border-primary/20 bg-card/80 backdrop-blur-sm shadow-premium animate-fade-in-up overflow-hidden relative group">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <CardContent className="p-6 md:p-8 relative z-10">
               <form onSubmit={handleSubmit} className="space-y-6">

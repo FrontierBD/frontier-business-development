@@ -26,24 +26,24 @@ const Navigation = () => {
     }
   };
   const showWhiteNav = isScrolled && isHomePage;
-  return <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${showWhiteNav ? 'bg-white shadow-md' : 'bg-transparent'}`}>
+  return <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${showWhiteNav ? 'bg-background/95 backdrop-blur-md shadow-lg shadow-primary/10 border-b border-primary/20' : 'bg-transparent'}`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-center h-16 md:h-20">
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <button onClick={() => scrollToSection('hero')} className={showWhiteNav || !isHomePage ? "text-primary hover:text-primary-light transition-colors" : "text-white hover:text-white/80 transition-colors"}>
+            <button onClick={() => scrollToSection('hero')} className={showWhiteNav || !isHomePage ? "text-foreground hover:text-primary transition-colors" : "text-white hover:text-white/80 transition-colors"}>
               Home
             </button>
-            <button onClick={() => scrollToSection('services')} className={showWhiteNav || !isHomePage ? "text-primary hover:text-primary-light transition-colors" : "text-white hover:text-white/80 transition-colors"}>
+            <button onClick={() => scrollToSection('services')} className={showWhiteNav || !isHomePage ? "text-foreground hover:text-primary transition-colors" : "text-white hover:text-white/80 transition-colors"}>
               Services
             </button>
-            <button onClick={() => scrollToSection('contact')} className={showWhiteNav || !isHomePage ? "text-primary hover:text-primary-light transition-colors" : "text-white hover:text-white/80 transition-colors"}>
+            <button onClick={() => scrollToSection('contact')} className={showWhiteNav || !isHomePage ? "text-foreground hover:text-primary transition-colors" : "text-white hover:text-white/80 transition-colors"}>
               Contact
             </button>
           </div>
 
           {/* Mobile Menu Button */}
-          <button className={showWhiteNav || !isHomePage ? "md:hidden text-primary absolute right-4" : "md:hidden text-white absolute right-4"} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          <button className={showWhiteNav || !isHomePage ? "md:hidden text-foreground absolute right-4" : "md:hidden text-white absolute right-4"} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
