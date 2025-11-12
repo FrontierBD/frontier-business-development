@@ -16,19 +16,46 @@ const Contact = () => {
     service: "",
     message: ""
   });
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message sent!",
-      description: "We'll get back to you within 24 hours."
-    });
-    setFormData({
-      name: "",
-      email: "",
-      businessName: "",
-      service: "",
-      message: ""
-    });
+    
+    try {
+      const response = await fetch(
+        "https://oftwtytbgjyvuuzmlhbl.supabase.co/functions/v1/send-contact-email",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      const data = await response.json();
+
+      if (data.success) {
+        toast({
+          title: "Message sent!",
+          description: "We'll get back to you within 24 hours."
+        });
+        setFormData({
+          name: "",
+          email: "",
+          businessName: "",
+          service: "",
+          message: ""
+        });
+      } else {
+        throw new Error(data.error || "Failed to send message");
+      }
+    } catch (error) {
+      console.error("Error sending message:", error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive"
+      });
+    }
   };
   return <section id="contact" className="py-20 md:py-32 bg-gradient-to-b from-[hsl(213,30%,96%)] to-[hsl(213,20%,99%)] dark:from-[hsl(213,25%,14%)] dark:to-[hsl(213,25%,10%)]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
