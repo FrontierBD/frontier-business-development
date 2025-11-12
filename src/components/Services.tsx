@@ -43,8 +43,7 @@ const Services = ({ className = "" }: { className?: string }) => {
               key={index}
               className="group hover:shadow-glow transition-all duration-500 hover:-translate-y-2 border-primary/20 animate-fade-in-up hover:border-primary/40 overflow-hidden relative"
               style={{ 
-                animationDelay: `${index * 150}ms`,
-                background: 'hsl(213 100% 34%)'
+                animationDelay: `${index * 150}ms`
               }}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
