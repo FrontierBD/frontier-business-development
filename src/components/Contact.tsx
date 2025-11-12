@@ -57,7 +57,7 @@ const Contact = () => {
       });
     }
   };
-  return <section id="contact" className="py-20 md:py-32 bg-gradient-to-b from-[hsl(213,30%,96%)] to-[hsl(213,20%,99%)] dark:from-[hsl(213,25%,14%)] dark:to-[hsl(213,25%,10%)]">
+  return <section id="contact" className="py-20 md:py-32" style={{ background: '#2a2a2a' }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-4 mb-16 animate-fade-in-up">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">
