@@ -17,7 +17,7 @@ const Hero = () => {
 
       {/* Fixed content width (no Tailwind container) */}
       <div className="relative z-10 mx-auto max-w-[1150px] px-6">
-        <div className="mx-auto text-center animate-fade-in-up pt-12">
+        <div className="mx-auto text-center animate-fade-in-up pt-4">
           <div className="flex justify-center">
             {/* Use clamp for consistent logo size across devices */}
             <img
