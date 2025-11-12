@@ -22,7 +22,7 @@ const Footer = ({ className = "" }: { className?: string }) => {
               <Linkedin className="w-5 h-5" />
             </a>
             <a
-              href="https://www.instagram.com/frontierbusinessdev/"
+              href="#"
               className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300"
               aria-label="Instagram"
             >
