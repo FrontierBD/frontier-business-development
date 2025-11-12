@@ -67,10 +67,7 @@ const Contact = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center space-y-4 mb-16 animate-fade-in-up">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">
-            Get In <span className="bg-gradient-primary bg-clip-text text-transparent relative">
-              Touch
-              <span className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-primary opacity-30 blur-sm" />
-            </span>
+            Get In <span className="bg-gradient-primary bg-clip-text text-transparent">Touch</span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
             Ready to elevate your digital presence? Let's start a conversation.
