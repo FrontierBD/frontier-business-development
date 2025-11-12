@@ -50,8 +50,8 @@ const Navigation = () => {
       </div>
 
       {/* Mobile Menu */}
-      {isMobileMenuOpen && <div className="md:hidden bg-black/80 backdrop-blur-sm border-t border-white/10 z-50">
-          <div className="container mx-auto px-4 py-4 space-y-4 bg-transparent rounded-none">
+      {isMobileMenuOpen && <div className="md:hidden bg-transparent z-50">
+          <div className="container mx-auto px-4 py-4 space-y-4">
             <button onClick={() => scrollToSection('hero')} className="block w-full text-center text-white hover:text-white/80 transition-colors py-2 text-lg">
               Home
             </button>
