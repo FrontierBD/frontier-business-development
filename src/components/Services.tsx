@@ -24,9 +24,9 @@ const services = [
   },
 ];
 
-const Services = () => {
+const Services = ({ className = "" }: { className?: string }) => {
   return (
-    <section id="services" className="py-20 md:py-32 relative overflow-hidden" style={{ background: 'var(--gradient-services)' }}>
+    <section id="services" className={`py-20 md:py-32 relative overflow-hidden ${className}`} style={{ background: 'var(--gradient-services)' }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center space-y-4 mb-16 animate-fade-in-up">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">
@@ -44,7 +44,7 @@ const Services = () => {
               className="group hover:shadow-glow transition-all duration-500 hover:-translate-y-2 border-primary/20 animate-fade-in-up hover:border-primary/40 overflow-hidden relative"
               style={{ 
                 animationDelay: `${index * 150}ms`,
-                background: 'linear-gradient(135deg, hsl(213 100% 34%) 0%, hsl(0 0% 0%) 100%)'
+                background: 'hsl(213 100% 34%)'
               }}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

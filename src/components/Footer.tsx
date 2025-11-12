@@ -1,6 +1,6 @@
 import { Twitter, Linkedin, Instagram } from "lucide-react";
-const Footer = () => {
-  return <footer className="bg-muted/30 border-t border-border py-12">
+const Footer = ({ className = "" }: { className?: string }) => {
+  return <footer className={`bg-muted/30 border-t border-border py-12 ${className}`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center space-y-6">
           
