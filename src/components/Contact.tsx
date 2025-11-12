@@ -155,7 +155,7 @@ const Contact = () => {
                     <Input id="service" value={formData.service} onChange={e => setFormData({
                     ...formData,
                     service: e.target.value
-                  })} required placeholder="Website Design, SEO, etc." className="bg-background border-border" />
+                  })} required placeholder="Website Design, SEO (Search Engine Optimization), etc." className="bg-background border-border" />
                   </div>
                 </div>
 

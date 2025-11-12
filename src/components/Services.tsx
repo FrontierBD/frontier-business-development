@@ -4,11 +4,11 @@ import { Card, CardContent } from "@/components/ui/card";
 const services = [
   {
     icon: Globe,
-    title: "Website Design & SEO Optimization",
-    description: "We build fast, modern websites that capture attention and drive conversions. Each site is optimized for SEO and built to grow with your business.",
+    title: "Website Design & SEO (Search Engine Optimization)",
+    description: "We build fast, modern websites that capture attention and drive conversions. Each site is optimized for SEO (Search Engine Optimization) and built to grow with your business.",
     features: [
       "Responsive design",
-      "SEO keyword targeting",
+      "SEO (Search Engine Optimization) keyword targeting",
       "Google Analytics integration"
     ]
   },
