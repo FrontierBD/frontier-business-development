@@ -50,15 +50,15 @@ const Navigation = () => {
       </div>
 
       {/* Mobile Menu */}
-      {isMobileMenuOpen && <div className="md:hidden bg-transparent z-50">
-          <div className="container mx-auto px-4 py-4 space-y-4">
-            <button onClick={() => scrollToSection('hero')} className="block w-full text-center text-white hover:text-white/80 transition-colors py-2 text-lg">
+      {isMobileMenuOpen && <div className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-sm shadow-lg z-50">
+          <div className="container mx-auto px-4 py-6 space-y-2">
+            <button onClick={() => scrollToSection('hero')} className="block w-full text-center text-foreground hover:text-primary transition-colors py-3 text-lg rounded-lg hover:bg-primary/10">
               Home
             </button>
-            <button onClick={() => scrollToSection('services')} className="block w-full text-center text-white hover:text-white/80 transition-colors py-2 text-lg">
+            <button onClick={() => scrollToSection('services')} className="block w-full text-center text-foreground hover:text-primary transition-colors py-3 text-lg rounded-lg hover:bg-primary/10">
               Services
             </button>
-            <button onClick={() => scrollToSection('contact')} className="block w-full text-center text-white hover:text-white/80 transition-colors py-2 text-lg">
+            <button onClick={() => scrollToSection('contact')} className="block w-full text-center text-foreground hover:text-primary transition-colors py-3 text-lg rounded-lg hover:bg-primary/10">
               Contact
             </button>
           </div>
