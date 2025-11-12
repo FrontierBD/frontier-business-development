@@ -37,7 +37,7 @@ const Hero = () => {
       </video>
 
       {/* 🌙 Dark overlay for text visibility */}
-      <div className="absolute inset-0 bg-black/70"></div>
+      <div className="absolute inset-0 bg-black/60"></div>
 
       {/* 🧱 Main content */}
       <div className="relative z-10 mx-auto max-w-[1150px] px-6 text-center animate-fade-in-up">
