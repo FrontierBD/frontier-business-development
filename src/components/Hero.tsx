@@ -63,7 +63,7 @@ const Hero = () => {
           }}
           className="leading-snug text-white/95 mx-auto drop-shadow-lg"
         >
-          Building high performing websites and AI-powered systems that help you're businesses attract more clients and
+          Building high performing websites and AI-powered systems that help your business attract more clients and
           scale faster.
         </p>
       </div>
