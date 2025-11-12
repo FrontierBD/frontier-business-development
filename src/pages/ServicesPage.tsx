@@ -2,7 +2,7 @@ import Services from "@/components/Services";
 
 const ServicesPage = () => {
   return (
-    <div className="min-h-screen pt-20">
+    <div className="pt-12">
       <Services />
     </div>
   );
