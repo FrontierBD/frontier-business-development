@@ -8,7 +8,7 @@ const Hero = () => {
   return (
     <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Video Background */}
-      <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
+      <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover scale-110 -translate-x-[5%]">
         <source src="/videos/hero-video.mp4" type="video/mp4" />
       </video>
 
