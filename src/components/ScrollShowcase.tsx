@@ -17,11 +17,15 @@ const ScrollShowcase = () => {
           </>
         }
       >
-        <div className="mx-auto rounded-2xl w-full h-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-          <p className="text-2xl md:text-4xl font-bold text-center text-muted-foreground">
-            Your Website Preview
-          </p>
-        </div>
+        <video
+          className="w-full h-full object-cover rounded-xl"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          <source src="/videos/website-scroll-demo.mp4" type="video/mp4" />
+        </video>
       </ContainerScroll>
     </div>
   );
