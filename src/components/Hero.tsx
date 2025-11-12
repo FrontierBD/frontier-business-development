@@ -18,7 +18,7 @@ const Hero = () => {
         <div className="mx-auto text-center animate-fade-in-up pt-4">
           <div className="flex justify-center">
             {/* Use clamp for consistent logo size across devices */}
-            <img src={logoWhite} alt="Frontier Business Development" className="w-[clamp(320px,40vw,650px)] h-auto drop-shadow-2xl mb-[-1.5rem]" />
+            <img src={logoWhite} alt="Frontier Business Development" className="w-[clamp(400px,50vw,800px)] h-auto drop-shadow-2xl mb-[-1.5rem]" />
           </div>
 
           {/* Use clamp for consistent text size; remove breakpoint-based scaling */}
