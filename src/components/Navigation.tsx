@@ -50,15 +50,15 @@ const Navigation = () => {
       </div>
 
       {/* Mobile Menu */}
-      {isMobileMenuOpen && <div className="md:hidden bg-background border-t border-border">
-          <div className="container mx-auto px-4 py-4 space-y-4 bg-transparent">
-            <button onClick={() => scrollToSection('hero')} className={showWhiteNav || !isHomePage ? "block w-full text-center text-primary hover:text-primary-light transition-colors py-2" : "block w-full text-center text-white hover:text-white/80 transition-colors py-2"}>
+      {isMobileMenuOpen && <div className="md:hidden bg-black/80 backdrop-blur-sm border-t border-white/10 z-50">
+          <div className="container mx-auto px-4 py-4 space-y-4">
+            <button onClick={() => scrollToSection('hero')} className="block w-full text-center text-white hover:text-white/80 transition-colors py-2 text-lg">
               Home
             </button>
-            <button onClick={() => scrollToSection('services')} className={showWhiteNav || !isHomePage ? "block w-full text-center text-primary hover:text-primary-light transition-colors py-2" : "block w-full text-center text-white hover:text-white/80 transition-colors py-2"}>
+            <button onClick={() => scrollToSection('services')} className="block w-full text-center text-white hover:text-white/80 transition-colors py-2 text-lg">
               Services
             </button>
-            <button onClick={() => scrollToSection('contact')} className={showWhiteNav || !isHomePage ? "block w-full text-center text-primary hover:text-primary-light transition-colors py-2" : "block w-full text-center text-white hover:text-white/80 transition-colors py-2"}>
+            <button onClick={() => scrollToSection('contact')} className="block w-full text-center text-white hover:text-white/80 transition-colors py-2 text-lg">
               Contact
             </button>
           </div>
