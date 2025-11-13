@@ -22,10 +22,23 @@ const ScrollShowcase = () => {
           </div>
         }
       >
-        <SplineScene 
-          scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-          className="w-full h-full"
-        />
+        {/* Split layout inside the tablet */}
+        <div className="flex flex-row h-full w-full bg-black">
+          {/* Left side - Text */}
+          <div className="flex-[0.4] flex items-center justify-center p-6 md:p-8">
+            <h3 className="text-2xl md:text-4xl font-bold text-white text-center">
+              Robotics company example
+            </h3>
+          </div>
+          
+          {/* Right side - 3D Robot */}
+          <div className="flex-[0.6] relative">
+            <SplineScene 
+              scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+              className="w-full h-full"
+            />
+          </div>
+        </div>
       </ContainerScroll>
     </div>
   );
