@@ -20,7 +20,7 @@ const ScrollShowcase = () => {
         <div className="flex flex-row h-full w-full bg-black">
           {/* Left side - Text */}
           <div className="flex-[0.4] flex items-center justify-center p-6 md:p-8">
-            <h3 className="text-2xl md:text-4xl font-bold text-white text-center px-0 mx-0 my-[30px]">
+            <h3 className="text-3xl md:text-5xl font-bold text-white text-center px-0 mx-0 my-[30px]">
               Robotics company example
             </h3>
           </div>
