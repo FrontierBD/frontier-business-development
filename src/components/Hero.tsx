@@ -28,7 +28,6 @@ const Hero = () => {
       {/* 🎥 Background Video */}
       <video
         autoPlay
-        autoplay="true"
         muted
         loop
         playsInline
