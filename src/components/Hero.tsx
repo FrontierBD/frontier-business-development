@@ -28,9 +28,11 @@ const Hero = () => {
       {/* 🎥 Background Video */}
       <video
         autoPlay
+        autoplay="true"
         muted
         loop
         playsInline
+        preload="auto"
         className="absolute inset-0 w-full h-full object-cover scale-110 -translate-x-[5%]"
       >
         <source src="/videos/hero-video.mp4" type="video/mp4" />
