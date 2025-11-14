@@ -21,7 +21,7 @@ const TabletZoomParallax = () => {
   });
 
   // Zoom into the tablet as you scroll this section
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.72]);
+  const scale = useTransform(scrollYProgress, [0, 0.8], [1, 1.67]);
 
   return (
     <div ref={containerRef} className="relative h-[180vh] bg-black">
