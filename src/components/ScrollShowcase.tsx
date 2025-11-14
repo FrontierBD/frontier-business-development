@@ -1,10 +1,10 @@
 import { SplineScene } from "@/components/ui/spline";
-import { ContainerScroll } from "@/components/ui/container-scroll-animation";
+import { PortalScroll } from "@/components/ui/portal-scroll-animation";
 const ScrollShowcase = () => {
   return <div className="flex flex-col overflow-hidden" style={{
     background: 'linear-gradient(180deg, hsl(0 0% 0%), hsl(213 25% 3%), hsl(0 0% 0%))'
   }}>
-      <ContainerScroll titleComponent={<div className="flex flex-col items-center">
+      <PortalScroll titleComponent={<div className="flex flex-col items-center">
             <h2 className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
               Modern Web Design
             </h2>
@@ -30,7 +30,7 @@ const ScrollShowcase = () => {
             <SplineScene scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" className="w-full h-full" />
           </div>
         </div>
-      </ContainerScroll>
+      </PortalScroll>
     </div>;
 };
 export default ScrollShowcase;
