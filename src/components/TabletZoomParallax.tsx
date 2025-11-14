@@ -21,10 +21,10 @@ const TabletZoomParallax = () => {
   });
 
   // Zoom into the tablet as you scroll this section
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 2.0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.6]);
 
   return (
-    <div ref={containerRef} className="relative h-[130vh] bg-black">
+    <div ref={containerRef} className="relative h-[180vh] bg-black">
       <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
         <motion.div style={{ scale }} className="w-full flex justify-center will-change-transform">
           {/* Your original tablet section, unchanged */}
