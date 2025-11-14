@@ -25,7 +25,7 @@ const TabletZoomParallax = () => {
 
   return (
     <div ref={containerRef} className="relative h-[180vh] bg-black">
-      <div className="sticky top-0 h-screen flex items-center justify-center">
+      <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
         <motion.div style={{ scale }} className="w-full flex justify-center will-change-transform">
           {/* Your original tablet section, unchanged */}
           <ScrollShowcase />
