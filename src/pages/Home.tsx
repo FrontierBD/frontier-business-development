@@ -9,7 +9,7 @@ const Home = () => {
       <Hero />
 
       {/* Add a little space below the hero */}
-      <div className="mt-4"></div>
+      <div className="mt-8"></div>
 
       {/* Zoom-into-tablet section */}
       <TabletZoomParallax />
