@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { useScroll, useTransform, motion } from "framer-motion";
+import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
 
 export const ContainerScroll = ({
   titleComponent,
@@ -8,91 +8,87 @@ export const ContainerScroll = ({
   titleComponent: string | React.ReactNode;
   children: React.ReactNode;
 }) => {
-  const ref = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end end"],
+    target: containerRef,
   });
+  const [isMobile, setIsMobile] = React.useState(false);
 
-  // Phase 1 (0 → 0.3): Tablet rotation + minor scale
-  const rotateX = useTransform(scrollYProgress, [0, 0.3], [20, 0]);
-  const initialScale = useTransform(scrollYProgress, [0, 0.3], [1.05, 1.0]);
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => {
+      window.removeEventListener("resize", checkMobile);
+    };
+  }, []);
 
-  // Phase 2 (0.3 → 0.7): Portal zoom to full viewport
-  // Scale up enough so the inner content fills the viewport and frame goes off-screen
-  const portalScale = useTransform(scrollYProgress, [0.3, 0.7], [1.0, 2.8]);
-  
-  // Combine scales
-  const scale = useTransform(
-    scrollYProgress,
-    (p) => {
-      if (p < 0.3) return initialScale.get();
-      return portalScale.get();
-    }
-  );
+  const scaleDimensions = () => {
+    return isMobile ? [0.7, 0.9] : [1.05, 1];
+  };
 
-  // Frame opacity: visible → invisible
-  const frameOpacity = useTransform(scrollYProgress, [0.3, 0.7], [1, 0]);
-  
-  // Border radius: 30px → 0px
-  const borderRadius = useTransform(scrollYProgress, [0.3, 0.7], [30, 0]);
-
-  // Box shadow based on frame opacity
-  const boxShadow = useTransform(
-    frameOpacity,
-    (opacity) =>
-      opacity > 0
-        ? `0 0 #0000004d, 0 9px 20px #0000004a, 0 37px 37px #00000042, 0 84px 50px #00000026, 0 149px 60px #0000000a, 0 233px 65px #00000003`
-        : "none"
-  );
-
-  // Title behavior: fade out and move up
-  const titleOpacity = useTransform(scrollYProgress, [0, 0.3, 0.4], [1, 0.5, 0]);
-  const titleY = useTransform(scrollYProgress, [0, 0.3], [0, -50]);
+  const rotate = useTransform(scrollYProgress, [0, 1], [20, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], scaleDimensions());
+  const translate = useTransform(scrollYProgress, [0, 1], [0, -100]);
 
   return (
-    <section
-      ref={ref}
-      className="relative w-full bg-black text-white min-h-[300vh]"
+    <div
+      className="h-[60rem] md:h-[80rem] flex items-center justify-center relative p-2 md:p-20"
+      ref={containerRef}
     >
-      {/* Title – fades out */}
-      <motion.div
-        className="sticky top-16 z-20 flex justify-center pointer-events-none"
-        style={{ opacity: titleOpacity, y: titleY }}
+      <div
+        className="py-10 md:py-40 w-full relative"
+        style={{
+          perspective: "1000px",
+        }}
       >
-        <div className="max-w-5xl mx-auto text-center px-4">
-          {titleComponent}
-        </div>
-      </motion.div>
-
-      {/* Tablet container – pinned & transformed */}
-      <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden">
-        <motion.div
-          style={{
-            scale,
-            rotateX,
-            borderRadius,
-            boxShadow,
-          }}
-          className="relative bg-black"
-        >
-          {/* Outer frame - grey border */}
-          <motion.div
-            style={{ opacity: frameOpacity }}
-            className="border-4 border-[#6C6C6C] rounded-[30px] p-2 md:p-6 bg-[#222222]"
-          >
-            {/* Inner white bezel */}
-            <div className="h-full w-full overflow-hidden rounded-2xl bg-gray-100 dark:bg-zinc-900 md:rounded-2xl md:p-4">
-              {/* Content area - no independent scrolling */}
-              <div className="w-[min(1100px,calc(100vw-2rem))] h-[min(650px,calc(100vh-4rem))]">
-                <div className="h-full w-full">
-                  {children}
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </motion.div>
+        <Header translate={translate} titleComponent={titleComponent} />
+        <Card rotate={rotate} translate={translate} scale={scale}>
+          {children}
+        </Card>
       </div>
-    </section>
+    </div>
+  );
+};
+
+export const Header = ({ translate, titleComponent }: any) => {
+  return (
+    <motion.div
+      style={{
+        translateY: translate,
+      }}
+      className="div max-w-5xl mx-auto text-center"
+    >
+      {titleComponent}
+    </motion.div>
+  );
+};
+
+export const Card = ({
+  rotate,
+  scale,
+  children,
+}: {
+  rotate: MotionValue<number>;
+  scale: MotionValue<number>;
+  translate: MotionValue<number>;
+  children: React.ReactNode;
+}) => {
+  return (
+    <motion.div
+      style={{
+        rotateX: rotate,
+        scale,
+        boxShadow:
+          "0 0 #0000004d, 0 9px 20px #0000004a, 0 37px 37px #00000042, 0 84px 50px #00000026, 0 149px 60px #0000000a, 0 233px 65px #00000003",
+      }}
+      className="max-w-5xl -mt-12 mx-auto h-[30rem] md:h-[40rem] w-full border-4 border-[#6C6C6C] p-2 md:p-6 bg-[#222222] rounded-[30px] shadow-2xl"
+    >
+      <div className=" h-full w-full  overflow-hidden rounded-2xl bg-gray-100 dark:bg-zinc-900 md:rounded-2xl md:p-4 ">
+        {children}
+      </div>
+    </motion.div>
   );
 };
