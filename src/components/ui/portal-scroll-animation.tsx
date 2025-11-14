@@ -25,29 +25,29 @@ export const PortalScroll = ({
     };
   }, []);
 
-  // Phase 1 & 2: Initial rotation and scale (0-30%), then portal entry (30-70%)
-  const rotate = useTransform(scrollYProgress, [0, 0.3, 0.5], [20, 0, 0]);
+  // Phase 1 & 2: Initial rotation and scale (0-40%), then portal entry (50-85%)
+  const rotate = useTransform(scrollYProgress, [0, 0.4, 0.6], [20, 0, 0]);
   const scale = useTransform(
     scrollYProgress, 
-    [0, 0.3, 0.7], 
-    isMobile ? [0.7, 0.9, 2.0] : [1.05, 1, 2.5]
+    [0, 0.4, 0.85], 
+    isMobile ? [0.7, 0.9, 1.15] : [1.05, 1, 1.2]
   );
 
-  // Phase 2: Border dissolution (30-70%)
-  const borderOpacity = useTransform(scrollYProgress, [0.3, 0.7], [1, 0]);
-  const borderRadius = useTransform(scrollYProgress, [0.3, 0.7], [30, 0]);
+  // Phase 2: Border dissolution (50-85%)
+  const borderOpacity = useTransform(scrollYProgress, [0.5, 0.85], [1, 0]);
+  const borderRadius = useTransform(scrollYProgress, [0.5, 0.85], [30, 0]);
 
   // Phase 1: Title fade (0-40%)
   const titleOpacity = useTransform(scrollYProgress, [0, 0.2, 0.4], [1, 1, 0]);
   const titleY = useTransform(scrollYProgress, [0, 0.4], [0, -150]);
 
-  // Phase 4: Content exit (85-100%)
-  const contentY = useTransform(scrollYProgress, [0.85, 1], [0, -100]);
-  const contentOpacity = useTransform(scrollYProgress, [0.85, 1], [1, 0]);
+  // No content exit - stays visible
+  const contentY = useTransform(scrollYProgress, [0.95, 1], [0, 0]);
+  const contentOpacity = useTransform(scrollYProgress, [0.95, 1], [1, 1]);
 
   return (
     <div
-      className="h-[100rem] md:h-[120rem] flex items-center justify-center relative p-2 md:p-20"
+      className="h-[70rem] md:h-[90rem] flex items-center justify-center relative p-2 md:p-20"
       ref={containerRef}
     >
       <div
