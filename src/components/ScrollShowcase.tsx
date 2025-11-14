@@ -20,22 +20,22 @@ const ScrollShowcase = () => {
             </p>
           </div>}>
         {/* Vertical container for all content inside the tablet */}
-        <div className="flex flex-col">
+        <div className="flex flex-col bg-black">
           
-          {/* First view: Robot + Text */}
-          <div className="min-h-screen flex flex-row h-full w-full bg-black">
+          {/* First view: Robot + Text - exactly one screen tall */}
+          <section className="min-h-screen flex flex-row items-center w-full">
             {/* Left side - Text */}
             <div className="flex-[0.4] flex items-center justify-center p-6 md:p-8">
-              <h3 className="text-3xl md:text-5xl font-bold text-white text-center px-0 mx-0 my-[30px]">
+              <h3 className="text-3xl md:text-5xl font-bold text-white text-center">
                 Robotics company example
               </h3>
             </div>
             
             {/* Right side - 3D Robot */}
-            <div className="flex-[0.6] relative">
+            <div className="flex-[0.6] relative h-full min-h-[500px]">
               <SplineScene scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" className="w-full h-full" />
             </div>
-          </div>
+          </section>
           
           {/* Second view: Services (scroll down to see) */}
           <Services />
