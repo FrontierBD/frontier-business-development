@@ -1,5 +1,8 @@
 import { SplineScene } from "@/components/ui/spline";
 import { PortalScroll } from "@/components/ui/portal-scroll-animation";
+import Services from "@/components/Services";
+import Contact from "@/components/Contact";
+
 const ScrollShowcase = () => {
   return <div className="flex flex-col overflow-hidden" style={{
     background: 'linear-gradient(180deg, hsl(0 0% 0%), hsl(213 25% 3%), hsl(0 0% 0%))'
@@ -16,19 +19,29 @@ const ScrollShowcase = () => {
               that capture attention and enhance your design.
             </p>
           </div>}>
-        {/* Split layout inside the tablet */}
-        <div className="flex flex-row h-full w-full bg-black">
-          {/* Left side - Text */}
-          <div className="flex-[0.4] flex items-center justify-center p-6 md:p-8">
-            <h3 className="text-3xl md:text-5xl font-bold text-white text-center px-0 mx-0 my-[30px]">
-              Robotics company example
-            </h3>
+        {/* Vertical container for all content inside the tablet */}
+        <div className="flex flex-col">
+          
+          {/* First view: Robot + Text */}
+          <div className="min-h-screen flex flex-row h-full w-full bg-black">
+            {/* Left side - Text */}
+            <div className="flex-[0.4] flex items-center justify-center p-6 md:p-8">
+              <h3 className="text-3xl md:text-5xl font-bold text-white text-center px-0 mx-0 my-[30px]">
+                Robotics company example
+              </h3>
+            </div>
+            
+            {/* Right side - 3D Robot */}
+            <div className="flex-[0.6] relative">
+              <SplineScene scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" className="w-full h-full" />
+            </div>
           </div>
           
-          {/* Right side - 3D Robot */}
-          <div className="flex-[0.6] relative">
-            <SplineScene scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" className="w-full h-full" />
-          </div>
+          {/* Second view: Services (scroll down to see) */}
+          <Services />
+          
+          {/* Third view: Contact (scroll down more to see) */}
+          <Contact />
         </div>
       </PortalScroll>
     </div>;
