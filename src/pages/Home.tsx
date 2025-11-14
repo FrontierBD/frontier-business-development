@@ -8,6 +8,9 @@ const Home = () => {
     <div className="min-h-screen bg-black">
       <Hero />
 
+      {/* Add a little space below the hero */}
+      <div className="mt-4"></div>
+
       {/* Zoom-into-tablet section */}
       <TabletZoomParallax />
 
