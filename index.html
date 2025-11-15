@@ -63,9 +63,9 @@
     </script>
 
     <!-- Preload critical assets for instant hero load -->
-    <link rel="preload" href="/images/logo-white.png" as="image" fetchpriority="high" />
-    <link rel="preload" href="/images/hero-poster.jpg" as="image" />
-    <link rel="preload" href="/videos/hero-video.mp4" as="video" type="video/mp4" />
+    <link rel="preload" href="/images/logo-white.png" as="image" fetchpriority="high" imagesrcset="/images/logo-white.png 1288w" imagesizes="(max-width: 768px) 380px, 820px" />
+    <link rel="preload" href="/images/hero-poster.jpg" as="image" fetchpriority="low" />
+    <link rel="preload" href="/videos/hero-video.mp4" as="video" type="video/mp4" fetchpriority="low" />
 
     <!-- Inline critical CSS to prevent flash -->
     <style>
@@ -82,6 +82,11 @@
       /* Optimize initial paint */
       img[fetchpriority="high"] {
         content-visibility: auto;
+      }
+      /* Force GPU acceleration for hero section */
+      #hero {
+        will-change: contents;
+        transform: translateZ(0);
       }
     </style>
 
@@ -100,7 +105,27 @@
   </head>
 
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Static hero placeholder for instant LCP - will be replaced by React -->
+      <section id="hero" style="position: relative; height: 100vh; display: flex; align-items: center; overflow: hidden; background-color: #000000;">
+        <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.4), #000000);"></div>
+        <div style="position: relative; z-index: 10; margin: 0 auto; max-width: 1150px; padding: 0 1.5rem; text-align: center;">
+          <div style="display: flex; justify-content: center;">
+            <img
+              src="/images/logo-white.png"
+              alt="Frontier Business Development"
+              width="1288"
+              height="326"
+              fetchpriority="high"
+              style="width: clamp(380px, 50vw, 820px); height: auto; filter: drop-shadow(0 25px 25px rgb(0 0 0 / 0.15));"
+            />
+          </div>
+          <p style="font-size: clamp(14px, 1.1vw, 20px); margin-top: 40px; max-width: 1500px; line-height: 1.625; color: rgba(255, 255, 255, 0.95); margin-left: auto; margin-right: auto; filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04));">
+            Building high performing websites and AI-powered systems that help your business attract more clients and scale faster in Atlantic Canada.
+          </p>
+        </div>
+      </section>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
