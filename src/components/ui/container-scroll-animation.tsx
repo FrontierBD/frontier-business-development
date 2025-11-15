@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
+import { debounce } from "@/lib/utils";
 
 export const ContainerScroll = ({
   titleComponent,
@@ -15,9 +16,10 @@ export const ContainerScroll = ({
   const [isMobile, setIsMobile] = React.useState(false);
 
   React.useEffect(() => {
-    const checkMobile = () => {
+    const checkMobile = debounce(() => {
       setIsMobile(window.innerWidth <= 768);
-    };
+    }, 150);
+    
     checkMobile();
     window.addEventListener("resize", checkMobile);
     return () => {
