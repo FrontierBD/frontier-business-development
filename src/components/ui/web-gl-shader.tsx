@@ -1,10 +1,25 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import * as THREE from "three"
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver"
+
+// Debounce utility function
+function debounce<T extends (...args: any[]) => any>(
+  func: T,
+  wait: number
+): (...args: Parameters<T>) => void {
+  let timeout: NodeJS.Timeout | null = null
+  return (...args: Parameters<T>) => {
+    if (timeout) clearTimeout(timeout)
+    timeout = setTimeout(() => func(...args), wait)
+  }
+}
 
 export function WebGLShader() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const isVisible = useIntersectionObserver(canvasRef, { threshold: 0.1 })
+  const [isMobile, setIsMobile] = useState(false)
   const sceneRef = useRef<{
     scene: THREE.Scene | null
     camera: THREE.OrthographicCamera | null
@@ -20,6 +35,13 @@ export function WebGLShader() {
     uniforms: null,
     animationId: null,
   })
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkMobile();
+  }, []);
 
   useEffect(() => {
     if (!canvasRef.current) return
@@ -62,7 +84,9 @@ export function WebGLShader() {
     const initScene = () => {
       refs.scene = new THREE.Scene()
       refs.renderer = new THREE.WebGLRenderer({ canvas })
-      refs.renderer.setPixelRatio(window.devicePixelRatio)
+      // Lower pixel ratio on mobile for better performance
+      const pixelRatio = Math.min(window.devicePixelRatio, isMobile ? 1.5 : 2)
+      refs.renderer.setPixelRatio(pixelRatio)
       refs.renderer.setClearColor(new THREE.Color(0x000000))
 
       refs.camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, -1)
@@ -102,6 +126,12 @@ export function WebGLShader() {
     }
 
     const animate = () => {
+      // Only animate when visible
+      if (!isVisible) {
+        refs.animationId = null
+        return
+      }
+      
       if (refs.uniforms) refs.uniforms.time.value += 0.01
       if (refs.renderer && refs.scene && refs.camera) {
         refs.renderer.render(refs.scene, refs.camera)
@@ -113,17 +143,22 @@ export function WebGLShader() {
       if (!refs.renderer || !refs.uniforms) return
       const width = window.innerWidth
       const height = window.innerHeight
+      const pixelRatio = Math.min(window.devicePixelRatio, isMobile ? 1.5 : 2)
       refs.renderer.setSize(width, height, false)
+      refs.renderer.setPixelRatio(pixelRatio)
       refs.uniforms.resolution.value = [width, height]
     }
 
+    // Debounced resize handler - only runs 150ms after resize stops
+    const debouncedResize = debounce(handleResize, 150)
+
     initScene()
-    animate()
-    window.addEventListener("resize", handleResize)
+    if (isVisible) animate()
+    window.addEventListener("resize", debouncedResize)
 
     return () => {
       if (refs.animationId) cancelAnimationFrame(refs.animationId)
-      window.removeEventListener("resize", handleResize)
+      window.removeEventListener("resize", debouncedResize)
       if (refs.mesh) {
         refs.scene?.remove(refs.mesh)
         refs.mesh.geometry.dispose()
@@ -133,7 +168,27 @@ export function WebGLShader() {
       }
       refs.renderer?.dispose()
     }
-  }, [])
+  }, [isMobile, isVisible])
+
+  // Restart animation when component becomes visible
+  useEffect(() => {
+    const { current: refs } = sceneRef
+    if (isVisible && !refs.animationId) {
+      const animate = () => {
+        if (!isVisible) {
+          refs.animationId = null
+          return
+        }
+        
+        if (refs.uniforms) refs.uniforms.time.value += 0.01
+        if (refs.renderer && refs.scene && refs.camera) {
+          refs.renderer.render(refs.scene, refs.camera)
+        }
+        refs.animationId = requestAnimationFrame(animate)
+      }
+      animate()
+    }
+  }, [isVisible])
 
   return (
     <canvas
