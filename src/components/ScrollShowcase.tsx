@@ -27,7 +27,7 @@ const ScrollShowcase = () => {
           {/* Left side - Text */}
           <div className="flex-[0.4] flex items-center justify-center p-6 md:p-8">
             <h3 className="text-3xl md:text-5xl font-bold text-white text-center px-0 mx-0 my-[30px]">
-              Robotics company example
+              Check me out! I'm interactive. Tap your screen or move your cursor to see what I can do.
             </h3>
           </div>
 
