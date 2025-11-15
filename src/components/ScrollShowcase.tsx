@@ -27,7 +27,7 @@ const ScrollShowcase = () => {
             <h1 className="mb-2 md:mb-3 text-white text-center text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter">
               Design is Everything
             </h1>
-            <p className="text-white/60 px-4 md:px-6 text-xs md:text-sm max-w-2xl text-center lg:text-base">Stand Out Where Your  Competitors Don’t
+            <p className="text-white/60 px-4 md:px-6 text-xs md:text-sm max-w-2xl text-center lg:text-base">Stand Out Where Your Competitors Don’t
           </p>
             <div className="my-4 md:my-6 flex items-center justify-center gap-1">
               
