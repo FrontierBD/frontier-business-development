@@ -41,7 +41,7 @@ const Hero = () => {
   }, [isVideoInView]);
 
   return (
-    <section id="hero" className="relative h-screen flex items-center overflow-hidden">
+    <section id="hero" className="relative h-screen flex items-center overflow-hidden bg-black">
       {/* 🎥 Background Video */}
       <video
         ref={videoRef}
@@ -49,9 +49,10 @@ const Hero = () => {
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="auto"
         poster="/images/hero-poster.jpg"
         className="absolute inset-0 w-full h-full object-cover scale-110 -translate-x-[5%]"
+        style={{ backgroundColor: '#000000' }}
       >
         <source src="/videos/hero-video.mp4" type="video/mp4" />
       </video>
