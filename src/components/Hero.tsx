@@ -3,7 +3,6 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useRef, useEffect, useState } from "react";
 import logoBlue from "@/assets/logo-blue.png";
-import logoWhite from "@/assets/logo-white.png";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 const Hero = () => {
@@ -89,7 +88,7 @@ const Hero = () => {
         {/* LOGO */}
         <div className="flex justify-center">
           <img
-            src={logoWhite}
+            src="/images/logo-white.png"
             alt="Frontier Business Development"
             width="1288"
             height="326"

@@ -63,7 +63,7 @@
     </script>
 
     <!-- Preload critical assets for instant hero load -->
-    <link rel="preload" href="/assets/logo-white-CQ2koAqH.png" as="image" fetchpriority="high" />
+    <link rel="preload" href="/images/logo-white.png" as="image" fetchpriority="high" />
     <link rel="preload" href="/images/hero-poster.jpg" as="image" />
     <link rel="preload" href="/videos/hero-video.mp4" as="video" type="video/mp4" />
 
@@ -77,6 +77,11 @@
       }
       #root {
         background-color: #000000;
+        min-height: 100vh;
+      }
+      /* Optimize initial paint */
+      img[fetchpriority="high"] {
+        content-visibility: auto;
       }
     </style>
 
@@ -84,11 +89,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="preload"
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
-      as="style"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+    </noscript>
   </head>
 
   <body>
