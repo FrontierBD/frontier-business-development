@@ -14,7 +14,23 @@ interface ContactFormData {
   businessName: string;
   service: string;
   message: string;
+  website?: string; // Honeypot field
 }
+
+// Simple in-memory rate limiting (resets on function cold start)
+const submissionTracker = new Map<string, number>();
+
+const isRateLimited = (email: string): boolean => {
+  const now = Date.now();
+  const lastSubmission = submissionTracker.get(email);
+  
+  if (lastSubmission && now - lastSubmission < 60000) { // 1 minute
+    return true;
+  }
+  
+  submissionTracker.set(email, now);
+  return false;
+};
 
 const handler = async (req: Request): Promise<Response> => {
   // Handle CORS preflight requests
@@ -25,6 +41,27 @@ const handler = async (req: Request): Promise<Response> => {
   try {
     const formData: ContactFormData = await req.json();
     console.log("Received contact form submission:", { name: formData.name, email: formData.email });
+
+    // Honeypot check
+    if (formData.website) {
+      console.log("Honeypot triggered - likely spam");
+      return new Response(JSON.stringify({ success: true }), {
+        status: 200,
+        headers: { "Content-Type": "application/json", ...corsHeaders },
+      });
+    }
+
+    // Rate limiting check
+    if (isRateLimited(formData.email)) {
+      console.log("Rate limit exceeded for:", formData.email);
+      return new Response(
+        JSON.stringify({ success: false, error: "Please wait before submitting again." }),
+        {
+          status: 429,
+          headers: { "Content-Type": "application/json", ...corsHeaders },
+        }
+      );
+    }
 
     // Send email to team@frontierbd.com
     const emailResponse = await resend.emails.send({
