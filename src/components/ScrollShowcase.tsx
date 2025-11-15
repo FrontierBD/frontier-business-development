@@ -1,31 +1,26 @@
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { WebGLShader } from "@/components/ui/web-gl-shader";
 import { LiquidButton } from '@/components/ui/liquid-glass-button';
-
 const ScrollShowcase = () => {
   const scrollToServices = () => {
     const servicesSection = document.getElementById('services');
     if (servicesSection) {
-      servicesSection.scrollIntoView({ behavior: 'smooth' });
+      servicesSection.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
   };
-
-  return (
-    <div className="flex flex-col overflow-hidden py-4 md:py-8" style={{
-      background: 'linear-gradient(180deg, hsl(0 0% 0%), hsl(213 25% 3%), hsl(0 0% 0%))'
-    }}>
-      <ContainerScroll
-        titleComponent={
-          <>
+  return <div className="flex flex-col overflow-hidden py-4 md:py-8" style={{
+    background: 'linear-gradient(180deg, hsl(0 0% 0%), hsl(213 25% 3%), hsl(0 0% 0%))'
+  }}>
+      <ContainerScroll titleComponent={<>
             <h2 className="text-4xl font-semibold text-foreground">
               Modern Web Design <br />
               <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none text-primary">
                 That Stands Out
               </span>
             </h2>
-          </>
-        }
-      >
+          </>}>
         <div className="relative w-full h-full overflow-hidden rounded-2xl">
           <WebGLShader />
           <div className="relative flex flex-col items-center justify-center h-full p-4 md:p-8">
@@ -33,7 +28,7 @@ const ScrollShowcase = () => {
               Design is Everything
             </h1>
             <p className="text-white/60 px-4 md:px-6 text-center text-xs md:text-sm lg:text-base max-w-2xl">
-              Unleashing creativity through bold visuals, seamless interfaces, and limitless possibilities.
+              Stand Out Where Your Competitors Don’t                    
             </p>
             <div className="my-4 md:my-6 flex items-center justify-center gap-1">
               <span className="relative flex h-2 w-2 md:h-3 md:w-3 items-center justify-center">
@@ -44,19 +39,13 @@ const ScrollShowcase = () => {
             </div>
             
             <div className="flex justify-center"> 
-              <LiquidButton 
-                onClick={scrollToServices}
-                className="text-white border rounded-full text-sm md:text-base" 
-                size={'xl'}
-              >
+              <LiquidButton onClick={scrollToServices} className="text-white border rounded-full text-sm md:text-base" size={'xl'}>
                 Services
               </LiquidButton> 
             </div>
           </div>
         </div>
       </ContainerScroll>
-    </div>
-  );
+    </div>;
 };
-
 export default ScrollShowcase;
