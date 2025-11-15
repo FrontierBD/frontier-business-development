@@ -91,6 +91,9 @@ const Hero = () => {
           <img
             src={logoWhite}
             alt="Frontier Business Development"
+            width="1288"
+            height="326"
+            fetchPriority="high"
             style={{
               width: logoWidth,
               marginTop: logoMarginTop,
