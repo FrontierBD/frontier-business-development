@@ -1,6 +1,15 @@
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
+import { WebGLShader } from "@/components/ui/web-gl-shader";
+import { LiquidButton } from '@/components/ui/liquid-glass-button';
 
 const ScrollShowcase = () => {
+  const scrollToServices = () => {
+    const servicesSection = document.getElementById('services');
+    if (servicesSection) {
+      servicesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="flex flex-col overflow-hidden py-4 md:py-8" style={{
       background: 'linear-gradient(180deg, hsl(0 0% 0%), hsl(213 25% 3%), hsl(0 0% 0%))'
@@ -17,10 +26,33 @@ const ScrollShowcase = () => {
           </>
         }
       >
-        <div className="mx-auto rounded-2xl w-full h-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-          <p className="text-2xl md:text-4xl font-bold text-center text-muted-foreground">
-            Your Website Preview
-          </p>
+        <div className="relative w-full h-full overflow-hidden rounded-2xl">
+          <WebGLShader />
+          <div className="relative flex flex-col items-center justify-center h-full p-4 md:p-8">
+            <h1 className="mb-2 md:mb-3 text-white text-center text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter">
+              Design is Everything
+            </h1>
+            <p className="text-white/60 px-4 md:px-6 text-center text-xs md:text-sm lg:text-base max-w-2xl">
+              Unleashing creativity through bold visuals, seamless interfaces, and limitless possibilities.
+            </p>
+            <div className="my-4 md:my-6 flex items-center justify-center gap-1">
+              <span className="relative flex h-2 w-2 md:h-3 md:w-3 items-center justify-center">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"></span>
+                <span className="relative inline-flex h-1.5 w-1.5 md:h-2 md:w-2 rounded-full bg-green-500"></span>
+              </span>
+              <p className="text-xs text-green-500">Available for New Projects</p>
+            </div>
+            
+            <div className="flex justify-center"> 
+              <LiquidButton 
+                onClick={scrollToServices}
+                className="text-white border rounded-full text-sm md:text-base" 
+                size={'xl'}
+              >
+                Services
+              </LiquidButton> 
+            </div>
+          </div>
         </div>
       </ContainerScroll>
     </div>
