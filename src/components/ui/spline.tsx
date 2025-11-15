@@ -1,4 +1,4 @@
-import { Suspense, lazy, Component, ReactNode } from 'react'
+import { Suspense, lazy, Component, ReactNode, useState, useEffect, useRef } from 'react'
 const Spline = lazy(() => import('@splinetool/react-spline'))
 
 interface SplineSceneProps {
@@ -36,6 +36,24 @@ class SplineErrorBoundary extends Component<
 }
 
 export function SplineScene({ scene, className }: SplineSceneProps) {
+  const [shouldLoad, setShouldLoad] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldLoad(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '100px' }
+    );
+    
+    if (containerRef.current) observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   const fallback = (
     <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-neutral-900 to-neutral-800">
       <div className="text-center p-8">
@@ -49,20 +67,23 @@ export function SplineScene({ scene, className }: SplineSceneProps) {
     </div>
   )
 
+  const loadingSpinner = (
+    <div className="w-full h-full flex items-center justify-center">
+      <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+    </div>
+  );
+
   return (
-    <SplineErrorBoundary fallback={fallback}>
-      <Suspense 
-        fallback={
-          <div className="w-full h-full flex items-center justify-center">
-            <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
-          </div>
-        }
-      >
-        <Spline
-          scene={scene}
-          className={className}
-        />
-      </Suspense>
-    </SplineErrorBoundary>
+    <div ref={containerRef} className={className}>
+      {shouldLoad ? (
+        <SplineErrorBoundary fallback={fallback}>
+          <Suspense fallback={loadingSpinner}>
+            <Spline scene={scene} className="w-full h-full" />
+          </Suspense>
+        </SplineErrorBoundary>
+      ) : (
+        loadingSpinner
+      )}
+    </div>
   )
 }

@@ -1,7 +1,11 @@
+import { lazy, Suspense } from "react";
 import Hero from "@/components/Hero";
-import TabletZoomParallax from "@/components/TabletZoomParallax";
-import Services from "@/components/Services";
-import Contact from "@/components/Contact";
+
+const TabletZoomParallax = lazy(() => import("@/components/TabletZoomParallax"));
+const Services = lazy(() => import("@/components/Services"));
+const Contact = lazy(() => import("@/components/Contact"));
+
+const SectionLoader = () => <div className="min-h-screen bg-black" />;
 
 const Home = () => {
   return (
@@ -12,11 +16,17 @@ const Home = () => {
       <div className="mt-24"></div>
 
       {/* Zoom-into-tablet section */}
-      <TabletZoomParallax />
+      <Suspense fallback={<SectionLoader />}>
+        <TabletZoomParallax />
+      </Suspense>
 
       {/* Rest of the site – visible after you go through the tablet section */}
-      <Services />
-      <Contact />
+      <Suspense fallback={<SectionLoader />}>
+        <Services />
+      </Suspense>
+      <Suspense fallback={<SectionLoader />}>
+        <Contact />
+      </Suspense>
     </div>
   );
 };
