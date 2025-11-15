@@ -3,32 +3,71 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- #1 – Favicon / preview image icon -->
     <link rel="icon" type="image/png" href="/favicon.png" />
+    <!-- (Optional: explicit sizes) -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+
+    <!-- #4 – Search result title (purple text in Google) -->
     <title>Frontier Business Development | Digital Growth for Atlantic Canada</title>
 
+    <!-- #5 – Search result description (grey paragraph in Google) -->
     <meta
       name="description"
-      content="Halifax-based business growth consulting agency specializing in modern websites, SEO optimization, and AI integrations for small businesses across Atlantic Canada."
+      content="Halifax-based digital consulting agency specializing in modern websites, SEO optimization, and AI integrations for businesses in Atlantic Canada."
     />
     <meta name="author" content="Frontier Business Development" />
 
-    <!-- Open Graph / Social Preview (LinkedIn, Instagram, Facebook) -->
-    <meta property="og:title" content="Frontier Business Development | Digital Growth for Atlantic Canada" />
+    <!-- Open Graph / Social Preview (LinkedIn, etc.) -->
+    <meta property="og:title" content="Frontier Business Development | Enhance Your Digital Presence" />
     <meta
       property="og:description"
-      content="Halifax-based business growth consulting agency specializing in modern websites, SEO optimization, and AI integrations for small businesses across Atlantic Canada."
+      content="Halifax-based digital consulting agency specializing in modern websites, SEO optimization, and AI integrations for businesses in Atlantic Canada."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://frontierbd.com/" />
+    <!-- #1 – Social preview image (same as favicon for now) -->
     <meta property="og:image" content="https://frontierbd.com/favicon.png" />
+    <!-- #2 – Site name that Google can use instead of raw domain -->
+    <meta property="og:site_name" content="Frontier Business Development" />
+
+    <!-- Structured data to encourage Google to show "Frontier Business Development" instead of frontierbd.com -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "name": "Frontier Business Development",
+            "url": "https://frontierbd.com",
+            "publisher": {
+              "@type": "Organization",
+              "name": "Frontier Business Development",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://frontierbd.com/favicon.png"
+              }
+            }
+          },
+          {
+            "@type": "Organization",
+            "name": "Frontier Business Development",
+            "url": "https://frontierbd.com",
+            "logo": "https://frontierbd.com/favicon.png"
+          }
+        ]
+      }
+    </script>
 
     <!-- Preload critical assets for instant hero load -->
     <link rel="preload" href="/images/hero-poster.jpg" as="image" />
     <link rel="preload" href="/videos/hero-video.mp4" as="video" type="video/mp4" />
-    
+
     <!-- Inline critical CSS to prevent flash -->
     <style>
-      html, body {
+      html,
+      body {
         background-color: #000000;
         margin: 0;
         padding: 0;
@@ -41,16 +80,12 @@
     <!-- Fonts - Optimized loading with font-display: swap and reduced weights -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Preload critical font weight for faster initial render -->
     <link
       rel="preload"
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
       as="style"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
   </head>
 
   <body>
