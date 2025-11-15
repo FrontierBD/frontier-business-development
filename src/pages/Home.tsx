@@ -1,24 +1,13 @@
-import { lazy, Suspense } from "react";
 import Hero from "@/components/Hero";
-
-const Services = lazy(() => import("@/components/Services"));
-const Contact = lazy(() => import("@/components/Contact"));
-
-const SectionLoader = () => <div className="min-h-screen bg-black" />;
-
+import ScrollShowcase from "@/components/ScrollShowcase";
+import Services from "@/components/Services";
+import Contact from "@/components/Contact";
 const Home = () => {
-  return (
-    <div className="min-h-screen bg-black">
+  return <div className="min-h-screen">
       <Hero />
-
-      <Suspense fallback={<SectionLoader />}>
-        <Services />
-      </Suspense>
-      <Suspense fallback={<SectionLoader />}>
-        <Contact />
-      </Suspense>
-    </div>
-  );
+      <ScrollShowcase />
+      <Services />
+      <Contact />
+    </div>;
 };
-
 export default Home;

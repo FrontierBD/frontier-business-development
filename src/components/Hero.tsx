@@ -1,28 +1,10 @@
-import { useState, useRef, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import logoBlue from "@/assets/logo-blue.png";
 import logoWhite from "@/assets/logo-white.png";
 
 const Hero = () => {
-  const [shouldPlay, setShouldPlay] = useState(false);
-  const [videoLoaded, setVideoLoaded] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShouldPlay(true);
-          videoRef.current?.play();
-        } else {
-          setShouldPlay(false);
-          videoRef.current?.pause();
-        }
-      },
-      { threshold: 0.25 }
-    );
-    
-    if (videoRef.current) observer.observe(videoRef.current);
-    return () => observer.disconnect();
-  }, []);
   // ================================================================
   // 🛠️ EASY CUSTOMIZATION SECTION
   // ---------------------------------------------------------------
@@ -44,20 +26,13 @@ const Hero = () => {
   return (
     <section id="hero" className="relative h-screen flex items-center overflow-hidden">
       {/* 🎥 Background Video */}
-      {!videoLoaded && (
-        <div className="absolute inset-0 bg-gradient-to-b from-neutral-900 to-black animate-pulse" />
-      )}
       <video
-        ref={videoRef}
+        autoPlay
         muted
         loop
         playsInline
-        preload="metadata"
-        poster="/videos/hero-video-poster.jpg"
-        onLoadedData={() => setVideoLoaded(true)}
         className="absolute inset-0 w-full h-full object-cover scale-110 -translate-x-[5%]"
       >
-        <source src="/videos/hero-video.webm" type="video/webm" />
         <source src="/videos/hero-video.mp4" type="video/mp4" />
       </video>
 
@@ -88,8 +63,8 @@ const Hero = () => {
           }}
           className="leading-snug text-white/95 mx-auto drop-shadow-lg"
         >
-          Building high performing websites and AI-powered systems that help your business attract more clients and
-          scale faster.
+          We build high performing websites and AI-powered systems that help businesses attract more clients and scale
+          faster.
         </p>
       </div>
     </section>
