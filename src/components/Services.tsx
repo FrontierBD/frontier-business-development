@@ -30,9 +30,9 @@ const Services = ({ className = "" }: { className?: string }) => {
       }}
     >
       {/* Animated background boxes */}
-      <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 w-full h-full overflow-hidden">
         <Boxes />
-        <div className="absolute inset-0 w-full h-full bg-black z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
+        <div className="absolute inset-0 w-full h-full z-20 [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,transparent_40%,rgba(0,0,0,0.9))] pointer-events-none" />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
