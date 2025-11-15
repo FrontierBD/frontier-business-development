@@ -1,13 +1,9 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
-import logoBlue from "@/assets/logo-blue.png";
-import logoWhite from "@/assets/logo-white.png";
 const Navigation = () => {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
       // Trigger color change after scrolling down a bit
@@ -22,47 +18,25 @@ const Navigation = () => {
       element.scrollIntoView({
         behavior: "smooth"
       });
-      setIsMobileMenuOpen(false);
     }
   };
   const showWhiteNav = isScrolled && isHomePage;
   return <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${showWhiteNav ? 'bg-background/95 backdrop-blur-md shadow-lg shadow-primary/10 border-b border-primary/20' : 'bg-transparent'}`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-center h-16 md:h-20">
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
-            <button onClick={() => scrollToSection('hero')} className={showWhiteNav || !isHomePage ? "text-foreground hover:text-primary transition-colors" : "text-white hover:text-white/80 transition-colors"}>
+          <div className="flex items-center space-x-4 md:space-x-8">
+            <button onClick={() => scrollToSection('hero')} className={showWhiteNav || !isHomePage ? "text-foreground hover:text-primary transition-colors text-sm md:text-base" : "text-white hover:text-white/80 transition-colors text-sm md:text-base"}>
               Home
             </button>
-            <button onClick={() => scrollToSection('services')} className={showWhiteNav || !isHomePage ? "text-foreground hover:text-primary transition-colors" : "text-white hover:text-white/80 transition-colors"}>
+            <button onClick={() => scrollToSection('services')} className={showWhiteNav || !isHomePage ? "text-foreground hover:text-primary transition-colors text-sm md:text-base" : "text-white hover:text-white/80 transition-colors text-sm md:text-base"}>
               Services
             </button>
-            <button onClick={() => scrollToSection('contact')} className={showWhiteNav || !isHomePage ? "text-foreground hover:text-primary transition-colors" : "text-white hover:text-white/80 transition-colors"}>
+            <button onClick={() => scrollToSection('contact')} className={showWhiteNav || !isHomePage ? "text-foreground hover:text-primary transition-colors text-sm md:text-base" : "text-white hover:text-white/80 transition-colors text-sm md:text-base"}>
               Contact
             </button>
           </div>
-
-          {/* Mobile Menu Button */}
-          <button className={showWhiteNav || !isHomePage ? "md:hidden text-foreground absolute right-4" : "md:hidden text-white absolute right-4"} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
         </div>
       </div>
-
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && <div className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-sm shadow-lg z-50">
-          <div className="container mx-auto px-4 py-6 space-y-2">
-            <button onClick={() => scrollToSection('hero')} className="block w-full text-center text-foreground hover:text-primary transition-colors py-3 text-lg rounded-lg hover:bg-primary/10">
-              Home
-            </button>
-            <button onClick={() => scrollToSection('services')} className="block w-full text-center text-foreground hover:text-primary transition-colors py-3 text-lg rounded-lg hover:bg-primary/10">
-              Services
-            </button>
-            <button onClick={() => scrollToSection('contact')} className="block w-full text-center text-foreground hover:text-primary transition-colors py-3 text-lg rounded-lg hover:bg-primary/10">
-              Contact
-            </button>
-          </div>
-        </div>}
     </nav>;
 };
 export default Navigation;
