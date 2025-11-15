@@ -22,8 +22,21 @@
     <meta property="og:url" content="https://frontierbd.com/" />
     <meta property="og:image" content="https://frontierbd.com/favicon.png" />
 
-    <!-- Preload critical assets -->
+    <!-- Preload critical assets for instant hero load -->
     <link rel="preload" href="/images/hero-poster.jpg" as="image" />
+    <link rel="preload" href="/videos/hero-video.mp4" as="video" type="video/mp4" />
+    
+    <!-- Inline critical CSS to prevent flash -->
+    <style>
+      html, body {
+        background-color: #000000;
+        margin: 0;
+        padding: 0;
+      }
+      #root {
+        background-color: #000000;
+      }
+    </style>
 
     <!-- Fonts - Optimized loading with font-display: swap and reduced weights -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
