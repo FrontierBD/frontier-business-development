@@ -28,11 +28,11 @@ const Hero = () => {
   const textMaxWidth = "1500px"; // Controls how wide the text can stretch
   // ================================================================
 
-  // Fade in video after 1 second
+  // Fade in video after 2 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowVideo(true);
-    }, 1000);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
