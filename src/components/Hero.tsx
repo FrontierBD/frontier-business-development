@@ -50,9 +50,8 @@ const Hero = () => {
         loop
         playsInline
         preload="auto"
-        poster="/images/hero-poster.jpg"
         className="absolute inset-0 w-full h-full object-cover scale-110 -translate-x-[5%]"
-        style={{ backgroundColor: '#000000' }}
+        style={{ backgroundColor: "#000000" }}
       >
         <source src="/videos/hero-video.mp4" type="video/mp4" />
       </video>
