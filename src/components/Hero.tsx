@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import logoBlue from "@/assets/logo-blue.png";
 import logoWhite from "@/assets/logo-white.png";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
@@ -9,6 +9,7 @@ import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 const Hero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const isVideoInView = useIntersectionObserver(videoRef, { threshold: 0.1 });
+  const [showVideo, setShowVideo] = useState(false);
   // ================================================================
   // 🛠️ EASY CUSTOMIZATION SECTION
   // ---------------------------------------------------------------
@@ -26,6 +27,15 @@ const Hero = () => {
   const textMarginTop = "40px"; // Bigger → move text LOWER | Smaller → closer to logo
   const textMaxWidth = "1500px"; // Controls how wide the text can stretch
   // ================================================================
+
+  // Fade in video after 1 second
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowVideo(true);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   // Play/pause video based on visibility
   useEffect(() => {
@@ -50,7 +60,9 @@ const Hero = () => {
         loop
         playsInline
         preload="auto"
-        className="absolute inset-0 w-full h-full object-cover scale-110 -translate-x-[5%]"
+        className={`absolute inset-0 w-full h-full object-cover scale-110 -translate-x-[5%] transition-opacity duration-1000 ${
+          showVideo ? "opacity-100" : "opacity-0"
+        }`}
         style={{ backgroundColor: "#000000" }}
       >
         <source src="/videos/hero-video.mp4" type="video/mp4" />
