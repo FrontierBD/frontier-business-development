@@ -1,10 +1,12 @@
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
+import RainingLetters from "@/components/ui/modern-animated-hero-section";
 
 const ScrollShowcase = () => {
   return (
     <div className="flex flex-col overflow-hidden py-4 md:py-8" style={{
       background: 'linear-gradient(180deg, hsl(0 0% 0%), hsl(213 25% 3%), hsl(0 0% 0%))'
     }}>
+      <RainingLetters />
       <ContainerScroll
         titleComponent={
           <>
