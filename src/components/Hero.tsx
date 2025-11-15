@@ -37,6 +37,13 @@ const Hero = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  // Set playback rate for consistent FPS
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 1.0;
+    }
+  }, []);
+
   // Play/pause video based on visibility
   useEffect(() => {
     if (videoRef.current) {
@@ -60,10 +67,16 @@ const Hero = () => {
         loop
         playsInline
         preload="auto"
-        className={`absolute inset-0 w-full h-full object-cover scale-110 -translate-x-[5%] transition-opacity duration-1000 ${
+        disablePictureInPicture
+        disableRemotePlayback
+        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
           showVideo ? "opacity-100" : "opacity-0"
         }`}
-        style={{ backgroundColor: "#000000" }}
+        style={{ 
+          backgroundColor: "#000000",
+          transform: "translate3d(-5%, 0, 0) scale(1.1)",
+          willChange: "transform, opacity"
+        }}
       >
         <source src="/videos/hero-video.mp4" type="video/mp4" />
       </video>
