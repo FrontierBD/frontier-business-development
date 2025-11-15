@@ -14,7 +14,8 @@ const Contact = () => {
     email: "",
     businessName: "",
     service: "",
-    message: ""
+    message: "",
+    website: "" // Honeypot field
   });
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -43,7 +44,8 @@ const Contact = () => {
           email: "",
           businessName: "",
           service: "",
-          message: ""
+          message: "",
+          website: ""
         });
       } else {
         throw new Error(data.error || "Failed to send message");
@@ -169,7 +171,20 @@ const Contact = () => {
                 })} placeholder="Tell us about your project..." rows={5} className="bg-background border-border" />
                 </div>
 
-                <Button 
+                {/* Honeypot field - hidden from users, catches bots */}
+                <div style={{ position: 'absolute', left: '-9999px' }} aria-hidden="true">
+                  <label htmlFor="website">Website</label>
+                  <Input 
+                    id="website" 
+                    name="website"
+                    value={formData.website}
+                    onChange={e => setFormData({ ...formData, website: e.target.value })}
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
+
+                <Button
                   type="submit" 
                   className="w-full bg-gradient-to-r from-primary to-primary-light hover:from-primary-light hover:to-primary text-primary-foreground shadow-glow hover:shadow-glow-hover transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] relative overflow-hidden group/button" 
                   size="lg"
