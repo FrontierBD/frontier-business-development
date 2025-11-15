@@ -22,11 +22,20 @@
     <meta property="og:url" content="https://frontierbd.com/" />
     <meta property="og:image" content="https://frontierbd.com/favicon.png" />
 
-    <!-- Fonts -->
+    <!-- Preload critical assets -->
+    <link rel="preload" href="/images/hero-poster.jpg" as="image" />
+
+    <!-- Fonts - Optimized loading with font-display: swap and reduced weights -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload critical font weight for faster initial render -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      as="style"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
   </head>

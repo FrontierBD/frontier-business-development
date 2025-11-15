@@ -1,10 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useRef, useEffect } from "react";
 import logoBlue from "@/assets/logo-blue.png";
 import logoWhite from "@/assets/logo-white.png";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 const Hero = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const isVideoInView = useIntersectionObserver(videoRef, { threshold: 0.1 });
   // ================================================================
   // 🛠️ EASY CUSTOMIZATION SECTION
   // ---------------------------------------------------------------
@@ -23,14 +27,30 @@ const Hero = () => {
   const textMaxWidth = "1500px"; // Controls how wide the text can stretch
   // ================================================================
 
+  // Play/pause video based on visibility
+  useEffect(() => {
+    if (videoRef.current) {
+      if (isVideoInView) {
+        videoRef.current.play().catch(() => {
+          // Ignore autoplay errors
+        });
+      } else {
+        videoRef.current.pause();
+      }
+    }
+  }, [isVideoInView]);
+
   return (
     <section id="hero" className="relative h-screen flex items-center overflow-hidden">
       {/* 🎥 Background Video */}
       <video
+        ref={videoRef}
         autoPlay
         muted
         loop
         playsInline
+        preload="metadata"
+        poster="/images/hero-poster.jpg"
         className="absolute inset-0 w-full h-full object-cover scale-110 -translate-x-[5%]"
       >
         <source src="/videos/hero-video.mp4" type="video/mp4" />
