@@ -21,7 +21,7 @@ const Navigation = () => {
     }
   };
   const showWhiteNav = isScrolled && isHomePage;
-  return <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${showWhiteNav ? 'bg-background/95 backdrop-blur-md shadow-lg shadow-primary/10 border-b border-primary/20' : 'bg-transparent'}`}>
+  return <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${showWhiteNav ? 'bg-gradient-to-b from-background/90 via-background/80 to-background/60 backdrop-blur-sm' : 'bg-gradient-to-b from-black/20 to-transparent'}`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-center h-16 md:h-20">
           <div className="flex items-center space-x-4 md:space-x-8">
